@@ -2,6 +2,9 @@ const { description } = require("../../package");
 
 module.exports = {
   base: "/GNOStatic/",
+  markdown: {
+    lineNumbers: true,
+  },
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */

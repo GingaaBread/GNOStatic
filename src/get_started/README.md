@@ -73,7 +73,7 @@ animal = "Lion 🦁"
 if animal is "Panda 🐼" {
     print "You have encountered a wild panda!"
 } else if animal is "Lion 🦁" {
-    print You'd better run!"
+    print "You'd better run!"
 }
 ```
 
@@ -179,7 +179,7 @@ class Car
 And of course, you can also tell GNO that an excluded variable should not have a `get`-method,
 `set`-method or neither, just as we have seen above.
 
-```
+```gno
 class Car
 (
     double: weight
@@ -191,7 +191,7 @@ class Car
 
 In the body of the class, you can specify further constructors, using the `constructor` keyword:
 
-```
+```gno
 class Car
 (
     double: weight
