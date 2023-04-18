@@ -61,6 +61,18 @@ module.exports = {
         collapsable: true,
         children: [
           {
+            title: "Programs",
+            path: "/essentials/programs.md",
+          },
+          {
+            title: "Folders",
+            path: "/essentials/folders.md",
+          },
+          {
+            title: "Enumerations",
+            path: "/essentials/enumerations.md",
+          },
+          {
             title: "Arrays",
             path: "/essentials/arrays.md",
           },
@@ -101,6 +113,10 @@ module.exports = {
               },
             ],
           },
+          {
+            title: "Exceptions",
+            path: "/essentials/exceptions.md",
+          }
         ],
       },
     ],
