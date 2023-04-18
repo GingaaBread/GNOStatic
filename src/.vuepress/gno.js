@@ -1,6 +1,11 @@
 // GNO syntax highlighting support
 
 Prism.languages.gno = {
+  comment: {
+    pattern: /(\/\/.*|\/\*[\s\S]*?\*\/)/g,
+    lookbehind: false,
+    greedy: true,
+  },
   builtin: {
     pattern: /print|input|args/,
     lookbehind: false,
@@ -8,7 +13,7 @@ Prism.languages.gno = {
   },
   keyword: {
     pattern:
-      /\b(?:abstract|and|as|boolean|break|case|catch|char|class|default|do|double|else|empty|enum|entity|equals|event|exists|false|for|foreach|get|if|implemented|in|int|interface|is|not|null|of|or|overridden|return|set|single|static|string|switch|this|throw|true|while|with)\b/,
+      /\b(?:abstract|and|as|boolean|break|case|catch|constructor|char|class|default|do|double|else|empty|enum|entity|equals|event|exists|false|for|foreach|get|if|implemented|in|int|interface|is|not|null|of|or|overridden|return|set|single|static|string|switch|this|throw|true|while|with)\b/,
     lookbehind: false,
     greedy: true,
   },
