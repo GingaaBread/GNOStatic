@@ -69,10 +69,6 @@ module.exports = {
             path: "/essentials/enumerations.md",
           },
           {
-            title: "Programs",
-            path: "/essentials/programs.md",
-          },
-          {
             title: "Data Types",
             path: "/essentials/datatypes.md",
           },
