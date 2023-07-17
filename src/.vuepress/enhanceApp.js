@@ -13,15 +13,11 @@ export default ({
   router, // the router instance for the app
   siteData, // site metadata
 }) => {
-  console.log(Prism);
-
   Vue.mixin({
     mounted() {
       const codeSections = document.querySelectorAll(
         "div.language-gno code.language-text"
       );
-
-      console.log(codeSections.length);
 
       codeSections.forEach((element) => {
         element.classList.replace("language-text", "language-gno");

@@ -44,10 +44,6 @@ module.exports = {
         text: "Get Started",
         link: "/get_started/",
       },
-      {
-        text: "VuePress",
-        link: "https://v1.vuepress.vuejs.org",
-      },
     ],
     sidebar: [
       {
@@ -57,31 +53,44 @@ module.exports = {
       },
       {
         title: "Essentials",
-        path: "/essentials/",
+        path: "/essentials/programs",
         collapsable: true,
         children: [
           {
-            title: "Arrays",
-            path: "/essentials/arrays.md",
+            title: "Programs",
+            path: "/essentials/programs.md",
           },
           {
             title: "Data Types",
             path: "/essentials/datatypes.md",
           },
           {
+            title: "Arrays",
+            path: "/essentials/arrays.md",
+            collapsable: true,
+          },
+          {
             title: "Conditions",
-            path: "/essentials/conditions/",
+            path: "/essentials/conditions/if_condition",
             collapsable: true,
             children: [
               {
                 title: "If Condition",
                 path: "/essentials/conditions/if_condition.md",
               },
+              {
+                title: "Unless Condition",
+                path: "/essentials/conditions/unless_condition.md",
+              },
+              {
+                title: "Switch",
+                path: "/essentials/conditions/switch.md",
+              },
             ],
           },
           {
             title: "Loops",
-            path: "/essentials/loops/",
+            path: "/essentials/loops/for_loop",
             collapsable: true,
             children: [
               {
@@ -92,14 +101,18 @@ module.exports = {
           },
           {
             title: "Operators",
-            path: "/essentials/operators/",
+            path: "/essentials/operators/comparison_operator",
             collapsable: true,
             children: [
               {
                 title: "Some Operator",
-                path: "/essentials/operators/some_operator.md",
+                path: "/essentials/operators/comparison_operator.md",
               },
             ],
+          },
+          {
+            title: "Sample",
+            path: "/essentials/sample.md",
           },
         ],
       },
