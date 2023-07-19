@@ -2,10 +2,10 @@
 
 The if condition is used to execute code, but only if a certain condition is met.
 The condition is expressed as a boolean, which can only evaluate to either `true` or `false`.
-If the condition equals `true`, the body of the condition will be executed, and if it equals `false`
+If the condition equals `true`, the body of the condition will be executed, and if it equals `false`,
 it will be skipped.
 
-Example:
+_Example:_
 
 ```gno
 User user = createRandomUser()
@@ -16,8 +16,8 @@ if user.HasWishlist() and user.accountAgeInYears >= 5 {
 ```
 
 In the example above, the randomly selected user will only receive a mail with a gift if the user's
-account is five years old or older and the user has at least one game on their wishlist. If either
-the account is not five years old or older or the user does not have any games on their wishlist,
+account is five years old or older, and the user has at least one game on their wishlist. If either
+the account is not five years old or older, or the user does not have any games on their wishlist,
 the condition is not met, and the code inside the body will not be executed.
 
 ## Structure
@@ -40,10 +40,10 @@ if BOOLEAN_EXPRESSION {
 
 ## If-Else Condition
 
-An `else` condition can be used in an if-condition, which is used to execute code if the condition
-is **not** met.
+An `else` condition can be used in an if-condition, which is used to execute code if the prior
+conditions are **not** met.
 
-Example:
+_Example:_
 
 ```gno
 int x = 5
@@ -64,7 +64,7 @@ above are **not** met, but the condition of the `else if` **are** met. Once a co
 construction has been met, no other conditions will be checked anymore, and the code continues after
 the condition.
 
-Example:
+_Example:_
 
 ```gno
 int x = 5

@@ -1,8 +1,11 @@
 # Switch
 
-The switch is used to evaluate an expression and select an appropriate option.
+The switch statement is used to evaluate an expression and select an appropriate option.
 
-Consider the following example:
+Consider the following example, which assigns a different value to `y`, depending on the value of
+the variable `x`.
+
+_Example:_
 
 ```gno
 int x = 5
@@ -25,9 +28,9 @@ switch x {
 print y // 0
 ```
 
-Note that you can provide any boolean expression.
+Note that you can provide any boolean expression in a case header.
 
-Example:
+_Example:_
 
 ```gno
 int x = 5
@@ -62,7 +65,7 @@ However, it can be dropped in the following cases:
 
 Based on this, the same example can be simplified to:
 
-Example:
+_Example:_
 
 ```gno
 int x = 5
@@ -77,8 +80,7 @@ switch x {
         y = 1
     }
 
-    // This cannot be simplified because it consists of multiple expressions
-    case # + 1 is not 1 {
+    case + 1 is not 1 {
         y = 0
     }
 }
@@ -92,7 +94,7 @@ If the case body consists of one line, it can be shortened down using the arrow 
 
 Based on this, the same example can be simplified to:
 
-Example:
+_Example:_
 
 ```gno
 int x = 5
@@ -101,7 +103,7 @@ int y
 switch x {
     case int.IsEven() => y = 2
     case > 5 => y = 1
-    case # + 1 is not 1 => y = 0
+    case + 1 is not 1 => y = 0
 }
 
 print y // 0

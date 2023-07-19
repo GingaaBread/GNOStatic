@@ -4,7 +4,7 @@
 
 The `<` operator returns `true` if the left operand is lesser than the right operand. Else, it returns `false`.
 
-Example:
+_Example:_
 
 ```gno
 print 3 < 5 // true
@@ -16,7 +16,7 @@ print 3 < 3 // false
 
 The `<=` operator returns `true` if the left operand is lesser than or equal to the right operand. Else, it returns `false`.
 
-Example:
+_Example:_
 
 ```gno
 print 3 <= 5 // true
@@ -28,7 +28,7 @@ print 3 <= 3 // true
 
 The `>` operator returns `true` if the left operand is greater than the right operand. Else, it returns `false`.
 
-Example:
+_Example:_
 
 ```gno
 print 5 > 3 // true
@@ -40,19 +40,19 @@ print 3 > 3 // false
 
 The `>=` operator returns `true` if the left operand is greater than or equal to the right operand. Else, it returns `false`.
 
-Example:
+_Example:_
 
 ```gno
 print 5 >= 3 // true
 print 3 >= 5 // false
-print 3 >= 3 // false
+print 3 >= 3 // true
 ```
 
 ## Divides Operator |
 
 The `|` operator returns `true` if the left integer operand divides the right integer operand. Else, it returns `false`.
 
-Example:
+_Example:_
 
 ```gno
 print 3 | 6 // true
@@ -64,7 +64,7 @@ print 1.5 | 3 // ERROR: 1.5 is a single
 
 The `is` keyword operator returns `true` if the left operand equals the right operand. Else, it returns `false`.
 
-Example:
+_Example:_
 
 ```gno
 print 3 is 3 // true
@@ -93,9 +93,11 @@ print isMarried // true
 
 ## Type Equals Operator "is of"
 
-The `is` keyword can be combined with the `of` keyword to create the type equals operator. The operator returns `true` if the type of the left operand equals the type of the right operand. Else, it returns `false`.
+The `is` keyword can be combined with the `of` keyword to create the type equals operator.
+The operator returns `true` if the type of the left operand equals the right type operand. Else, it
+returns `false`.
 
-Example:
+_Example:_
 
 ```gno
 print 3 is of int // true
@@ -107,7 +109,7 @@ print myObj is of single // false
 print myObj is of MyObj // true
 ```
 
-## Could Equal To Operator "equals"
+## Cast Equal To Operator "equals"
 
 The `equals` keyword operator returns `true` if the left operand equals the right operand after casting the type of the right operand to the type of the left operand. Else, it returns `false`.
 

@@ -47,7 +47,8 @@ print true or false // true
 ```
 
 ::: danger
-Note that `and` and `or` are short-circuiting, meaning that they only evaluate the second operand if necessary, and behave like `&&` and `||` in other languages. There is no eager variants of
+Note that `and` and `or` are short-circuiting, meaning that they only evaluate the second operand
+if necessary, and behave like `&&` and `||` in other languages. There are no eager variants of
 `and` and `or` in GNO like `&` and `|` in other languages!
 :::
 
@@ -62,6 +63,24 @@ Example:
 print true xor true // false
 print false or false // false
 print true or false // true
+```
+
+## Boolean Literals
+
+Note that the examples above are specified for simplicity. They do not, however, compile!
+
+In GNO, the `true` and `false` literals **cannot** be used as either a left or right operand in any
+binary logical operation.
+
+```gno
+print true or something // "something" does not matter -> true
+print false or something // "false" does not matter -> something
+
+print true and something // "true" does not matter -> something
+print false and something // "true" does not matter -> false
+
+print true xor something // "true" does not matter -> not something
+print false xor something // "false" does not matter -> something
 ```
 
 ## Logical Operator Order

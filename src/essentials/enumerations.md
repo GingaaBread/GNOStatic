@@ -31,6 +31,16 @@ if month is Month.JANUARY {
 }
 ```
 
+If checking for equality using the `is` operator, the enumeration identifier can be dropped.
+
+```gno
+month = Month.FEBRUARY
+
+if month is JANUARY {
+    print "Happy new year!"
+}
+```
+
 ## Identities
 
 An enumeration identity is a value assigned to an enumeration constant. By default, each constant is assigned an `int` type, starting at 0, counting up for each defined constant. To reference an identity, the identity operator `#` is used directly after the constant identifier.

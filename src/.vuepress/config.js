@@ -105,16 +105,44 @@ module.exports = {
                 title: "For Loop",
                 path: "/essentials/loops/for_loop.md",
               },
+              {
+                title: "Foreach Loop",
+                path: "/essentials/loops/foreach_loop.md",
+              },
+              {
+                title: "Do Loop",
+                path: "/essentials/loops/do_loop.md",
+              },
+              {
+                title: "While Loop",
+                path: "/essentials/loops/while_loop.md",
+              },
+              {
+                title: "Until Loop",
+                path: "/essentials/loops/until_loop.md",
+              },
             ],
           },
           {
             title: "Operators",
-            path: "/essentials/operators/comparison_operator",
+            path: "/essentials/operators/comparison_operators",
             collapsable: true,
             children: [
               {
-                title: "Some Operator",
-                path: "/essentials/operators/comparison_operator.md",
+                title: "Comparison Operators",
+                path: "/essentials/operators/comparison_operators.md",
+              },
+              {
+                title: "Logical Operators",
+                path: "/essentials/operators/logical_operators.md",
+              },
+              {
+                title: "Mathematical Operators",
+                path: "/essentials/operators/mathematical_operators.md",
+              },
+              {
+                title: "Special Operators",
+                path: "/essentials/operators/special_operators.md",
               },
             ],
           },
