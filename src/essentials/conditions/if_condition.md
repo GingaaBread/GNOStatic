@@ -8,7 +8,7 @@ it will be skipped.
 _Example:_
 
 ```gno
-User user = createRandomUser()
+User user = CreateRandomUser()
 if user.HasWishlist() and user.accountAgeInYears >= 5 {
     MailService.SendMailToUser(user, "Thank you for staying with us for so long!")
     user.GiftGame(user.wishlist[0])
@@ -106,3 +106,18 @@ if x is 3 {
 
 // "x is something else!"
 ```
+
+## Expressive If
+
+An inline if condition can be used in as an expression.
+In other languages, this is commonly done by using the operators `?` and `:` as ternary operators.
+In GNO, the keywords `if`, `then`, and `else` are used...
+
+```gno
+boolean a = true
+boolean b = false
+int c = if a and b then 1 else 5
+```
+
+This can be a convenient way to quickly set a value inline, whilst avoiding a switch assignment.
+For three or more options, however, use a switch assignment.

@@ -1,8 +1,13 @@
 # Folders
 
-Folders are locations in your project that contain code. It can be very useful to distribute and organise your project using folders. Folders are similar to folders on your operating system, in that they allow a hierarchical distribution of your project.
+Folders are locations in your project that contain code. It can be very useful to distribute and
+organise your project using folders. Folders are similar to folders on an operating system,
+in that they allow a hierarchical distribution of a project.
 
-To declare that the current GNO file should be part of a folder, use the `in` keyword followed by the folder identifier. A folder name needs be unique in its location. If used, a folder declaration is the first and top-most part of a GNO file (unless the file contains the program's main section, which is always the first part of a GNO file).
+To declare that the current GNO file should be part of a folder, use the `in` keyword followed by
+the folder identifier. A folder name needs be unique in its location. If used, a folder declaration
+is the first and top-most part of a GNO file (unless the file contains the program's main section,
+which is always the first part of a GNO file).
 
 ::: warning
 A folder contains inner code. Therefore, unlike all other structs, it **requires** a body.
@@ -15,7 +20,7 @@ in Samples {
 }
 ```
 
-Folders can contain structs, which allows you to nest folders:
+Folders can contain any struct, including folders, which allows nesting folders:
 
 ```gno
 in Samples {
@@ -64,7 +69,7 @@ in Samples {
 }
 ```
 
-Alternatively, folders can be referenced using the `with` keyword:
+Alternatively, folders can be imported using the `with` keyword:
 
 ```gno
 in Samples {
@@ -96,3 +101,6 @@ in Samples {
     enum SampleEnumeration
 }
 ```
+
+Imports must be placed directly above the importing class.
+You **cannot** import a struct without using it in the importing class.

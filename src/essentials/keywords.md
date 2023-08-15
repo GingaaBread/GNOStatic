@@ -8,6 +8,7 @@ A:
 - abstract
 - and
 - as
+- at
 
 B:
 
@@ -55,6 +56,7 @@ I:
 - int
 - interface
 - is
+- it
 
 N:
 
@@ -66,6 +68,7 @@ O:
 - of
 - or
 - overridden
+- optional
 
 R:
 
@@ -81,7 +84,7 @@ S:
 
 T:
 
-- this
+- then
 - throw
 - true
 

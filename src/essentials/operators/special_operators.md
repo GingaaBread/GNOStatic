@@ -68,7 +68,7 @@ print "Butter" is in shoppingList // true
 print "Flour" is in shoppingList // false
 ```
 
-## Cardinality Operator `||`
+## Cardinality Operator `|x|`
 
 The cardinality operator is wrapped around sets to return their size.
 
@@ -85,7 +85,3 @@ print |shoppingList|
 ## Arrow Operator `=>`
 
 The arrow operator is used for lamda functions, and inline method bodies.
-
-## Identity Operator `#`
-
-The identity operator is used in lamdas, loops, and enumerations.

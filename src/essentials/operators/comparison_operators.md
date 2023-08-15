@@ -111,18 +111,19 @@ print myObj is of MyObj // true
 
 ## Cast Equal To Operator "equals"
 
-The `equals` keyword operator returns `true` if the left operand equals the right operand after casting the type of the right operand to the type of the left operand. Else, it returns `false`.
+The `equals` keyword operator returns `true` if the left operand equals the right operand after
+casting the type of the right operand to the type of the left operand. Else, it returns `false`.
 
 ```gno
 print 3 equals 5 // false
 print "5" equals 5 // true
-print 5.5 equals 5 // true
-print 5 equals 5.5 // false
+print 5.5 equals 5 // false
+print 5 equals 5.5 // true
 ```
 
 Note that this is syntactic sugar for a simple cast:
 
 ```gno
-print 5.5 as int is 5 // true
-print 5 as single is 5.5 // false
+print 5.5 as int is 5 // false
+print 5 as single is 5.5 // true
 ```

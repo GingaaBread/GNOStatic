@@ -4,7 +4,12 @@
 
 A GNO program consists of one or more `.gno` files.
 
-A GNO file contains zero or more structs. Structs are folders, classes, interfaces, or enumerations.
+A GNO file contains zero or more structs. Structs are either:
+
+- folders,
+- classes,
+- interfaces, or
+- enumerations.
 
 The following example outlines a sample file:
 
@@ -52,5 +57,5 @@ argument = args[0]
 
 print("Additional argument is: $argument") // "Additional argument is Ping"
 
-print(args[5 - 2] as int / 2) // 61
+print(args[2] as single) // "123.0"
 ```

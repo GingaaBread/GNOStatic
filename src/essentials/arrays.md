@@ -33,11 +33,11 @@ int[] ids = [1, 3, 5, 7]
 This creates a new array with a fixed size of 4. Note that the size of an array cannot be changed
 after initialisation.
 
-To intialise an array with a fixed size, but no values, the array type needs to proceed the
-initialisation like so:
+To intialise an array with a fixed size, but no values, supply the size of the array as an integer
+like so:
 
 ```gno
-string[] names = string[3]
+string[] names = 3
 ```
 
 This creates a new array with a fixed size of 3.
@@ -79,6 +79,24 @@ so:
 string[] names = ["John", "Sarah", "Tom"]
 
 print |names| // 3
+```
+
+## Anonymous Arrays
+
+Anonymous arrays are arrays with an implicit array data type and no variable name.
+The data type of the array is inferred and all values of the array must be of that type.
+
+_Example_:
+
+```gno
+print |["John", "Sarah", "Tom"]| // 3
+
+foreach day in ["Monday", "Sunday", "Friday"] {
+    print "Day is $day"
+}
+
+int magicNumber = [1, 3, 5, 8].over.Reversed().Skip(1).First()
+print magicNumber // 5
 ```
 
 ## Iterable

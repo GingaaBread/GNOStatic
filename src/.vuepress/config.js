@@ -65,10 +65,6 @@ module.exports = {
             path: "/essentials/folders.md",
           },
           {
-            title: "Enumerations",
-            path: "/essentials/enumerations.md",
-          },
-          {
             title: "Data Types",
             path: "/essentials/datatypes.md",
           },
@@ -76,6 +72,10 @@ module.exports = {
             title: "Arrays",
             path: "/essentials/arrays.md",
             collapsable: true,
+          },
+          {
+            title: "Enumerations",
+            path: "/essentials/enumerations.md",
           },
           {
             title: "Conditions",
@@ -137,8 +137,12 @@ module.exports = {
                 path: "/essentials/operators/logical_operators.md",
               },
               {
-                title: "Mathematical Operators",
-                path: "/essentials/operators/mathematical_operators.md",
+                title: "Arithmetic Operators",
+                path: "/essentials/operators/arithmetic_operators.md",
+              },
+              {
+                title: "String Operators",
+                path: "/essentials/operators/string_operators.md",
               },
               {
                 title: "Special Operators",
@@ -149,6 +153,48 @@ module.exports = {
           {
             title: "Sample",
             path: "/essentials/sample.md",
+          },
+        ],
+      },
+      {
+        title: "Object Orientation",
+        path: "/object_orientation/classes",
+        collapsable: true,
+        children: [
+          {
+            title: "Classes",
+            path: "/object_orientation/classes.md",
+          },
+          {
+            title: "Class Definitions",
+            path: "/object_orientation/class_definitions/abstract_classes",
+            collapsable: true,
+            children: [
+              {
+                title: "Abstract Classes",
+                path: "/object_orientation/class_definitions/abstract_classes.md",
+              },
+              {
+                title: "Singleton Classes",
+                path: "/object_orientation/class_definitions/singleton_classes.md",
+              },
+            ],
+          },
+          {
+            title: "Properties",
+            path: "/object_orientation/properties.md",
+          },
+          {
+            title: "Methods",
+            path: "/object_orientation/methods.md",
+          },
+          {
+            title: "Constructors",
+            path: "/object_orientation/constructors.md",
+          },
+          {
+            title: "Objects",
+            path: "/object_orientation/objects.md",
           },
         ],
       },

@@ -43,21 +43,21 @@ print "My favourite drink is $drink" // Output: "My favourite drink is Water ðŸŒ
 There are no semicolons in GNO. Instead, it uses line ends to determine how to interpret your code.
 GNO still uses brackets, however, as it is **not** an indentation-focused language.
 
-### Optional Brackets
+### No Brackets
 
-It is completely optional to provide brackets in method calls, conditions, loops, and other constructs. This way, you're not forced to use
-them, but you still can if you think it improves readability.
+There are no brackets in loops and conditions, and it is completely optional to provide brackets
+in method calls, and other constructs.
 
 ```gno
 print "Hello World!" // Output: "Hello World!"
 print("Hello World!") // Output: "Hello World!"
 
-if (x is 5) {
+if x is 5 {
     // ...
 }
 
-if x is 5 {
-    // ...
+foreach item in Items {
+    AddItemToInventory item
 }
 ```
 
@@ -99,8 +99,8 @@ other classes in the same folder. Let's add some properties to our cars:
 ```gno
 class Car
 (
-    double weight
-    int maxVelocity
+    double weight,
+    int maxVelocity,
     Colour colour
 )
 ```
@@ -111,7 +111,7 @@ accessing their internal `set`-methods:
 
 ```gno
 car1 = Car(1400.50, 200, Colour.RED)
-car2 = Car(2400.50, 180, Colour.Black)
+car2 = Car(2400.50, 180, Colour.BLACK)
 
 print car1.maxVelocity // Output: "200"
 
