@@ -7,6 +7,7 @@ A:
 
 - abstract
 - and
+- any
 - as
 - at
 
@@ -41,6 +42,7 @@ E:
 F:
 
 - false
+- first
 - for
 - foreach
 
@@ -58,6 +60,10 @@ I:
 - is
 - it
 
+L:
+
+- last
+
 N:
 
 - not
@@ -67,12 +73,9 @@ O:
 
 - of
 - or
+- other
 - overridden
 - optional
-
-R:
-
-- return
 
 S:
 

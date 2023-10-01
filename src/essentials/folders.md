@@ -20,7 +20,7 @@ in Samples {
 }
 ```
 
-Folders can contain any struct, including folders, which allows nesting folders:
+Folders can contain any struct, including sub-folders, which allows you to nest folders:
 
 ```gno
 in Samples {
@@ -37,7 +37,7 @@ in Samples {
 }
 ```
 
-Folders are named in UpperCaseCamelCase and when used, are separated by full-stops `.`:
+Folders are named in _UpperCaseCamelCase_. Folders are separated by full-stops `.`:
 
 ```gno
 in Samples {

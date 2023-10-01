@@ -2,6 +2,8 @@
 
 ## Member Access Operator `.`
 
+> Type: binary
+
 Used to access a member of a structure.
 
 _Example:_
@@ -39,7 +41,10 @@ otherExample?.Foo() // Does not execute Foo() because otherExample is null
 
 ## Array Access Operator `[]`
 
-Accesses the value of an array at the specified index. Note that the index must be an integer.
+> Type: complex
+
+Accesses the value of an array at the specified index. Note that the index must be a
+non-negative integer.
 
 _Example_:
 
@@ -50,7 +55,7 @@ print arr[0] // 1
 
 Note that you **cannot** use the array access operator on anonymous arrays.
 
-## Contains Operator "is in"
+## Contains Operator `is in`
 
 The `is in` keyword operator is used to evaluate if a set contains a certain element.
 It returns `true`, if the elements exists in the set, and `false` if it does not.
@@ -68,7 +73,9 @@ print "Butter" is in shoppingList // true
 print "Flour" is in shoppingList // false
 ```
 
-## Cardinality Operator `|x|`
+## Cardinality Operator `size of`
+
+> Type: unary keyword operator
 
 The cardinality operator is wrapped around sets to return their size.
 
@@ -76,12 +83,14 @@ _Example_:
 
 ```gno
 arr = [1, 2, 3]
-print |arr| // 3
+print size of arr // 3
 
 Item[,] shoppingList = ["Apple", "Milk", "Butter", "Flour"]
-print |shoppingList|
+print size of shoppingList
 ```
 
 ## Arrow Operator `=>`
 
-The arrow operator is used for lamda functions, and inline method bodies.
+> Type: complex
+
+The arrow operator is used for lambda functions, and inline method bodies.

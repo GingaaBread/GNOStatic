@@ -1,6 +1,6 @@
 # Casting
 
-Values can be casted from one data type to another data type using the `as` keyword.
+Values can be cast from one data type to another data type using the `as` keyword.
 Consider the following example where `a` is an integer, but `b` is a string.
 
 ```gno
@@ -36,7 +36,7 @@ Create a casting definition in the body of a class using the `as` keyword. Separ
 types by a comma. You can also use complex functions to represent the type.
 
 ```gno
-class Circle(
+class Circle (
     int radius
 ) {
     as {
@@ -44,7 +44,7 @@ class Circle(
         string => "Radius of the circle is $radius",
         CustomClass {
             if radius > 100 {
-                return CustomClass()
+                get CustomClass()
             } else throw CastingError()
         }
     }

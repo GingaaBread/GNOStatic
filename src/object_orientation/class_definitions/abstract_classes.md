@@ -12,7 +12,7 @@ have some common behaviour. Maybe all of these mediums share a common MediaID, f
 We could certainly use inheritance in GNO to make all medias extend from a parent class like so:
 
 ```gno
-class Media(
+class Media (
     long:get mediaID,
     Date:get acquiringDate
 )
@@ -23,15 +23,14 @@ class VideoGame of Media
 ```
 
 This works, but annoyingly we could now also instantiate the Media class despite the fact that it
-merely represents _any_ type of media, but itself is not actually a type of media.
+merely represents any _type_ of media, but itself is not actually a type of media.
 
 ```gno
 Media book = Book(1_452_523L, Date())
 Media media = Media(0L, Date())
 ```
 
-Not only is this prone to error (what happens if you automatically call a method for all Media
-objects, for example?), but it is also not very readable and generally bad practice.
+Not only is this prone to error, but it is also not very readable and generally bad practice.
 
 In GNO, a class is abstract if it is designated with the `abstract` class definition.
 

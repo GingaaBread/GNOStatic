@@ -61,21 +61,47 @@ module.exports = {
             path: "/essentials/programs.md",
           },
           {
-            title: "Folders",
-            path: "/essentials/folders.md",
-          },
-          {
             title: "Data Types",
             path: "/essentials/datatypes.md",
           },
           {
+            title: "Data Casting",
+            path: "/essentials/casting.md",
+          },
+          {
             title: "Arrays",
             path: "/essentials/arrays.md",
-            collapsable: true,
           },
           {
             title: "Enumerations",
             path: "/essentials/enumerations.md",
+          },
+          {
+            title: "Operators",
+            path: "/essentials/operators/comparison_operators",
+            collapsable: true,
+            children: [
+              {
+                title: "Comparison Operators",
+                path: "/essentials/operators/comparison_operators.md",
+              },
+              {
+                title: "Logical Operators",
+                path: "/essentials/operators/logical_operators.md",
+              },
+              {
+                title: "Arithmetic Operators",
+                path: "/essentials/operators/arithmetic_operators.md",
+              },
+              {
+                title: "String Operators",
+                path: "/essentials/operators/string_operators.md",
+              },
+              {
+                title: "Special Operators",
+                path: "/essentials/operators/special_operators.md",
+              },
+            ],
           },
           {
             title: "Conditions",
@@ -106,12 +132,12 @@ module.exports = {
                 path: "/essentials/loops/for_loop.md",
               },
               {
-                title: "Foreach Loop",
-                path: "/essentials/loops/foreach_loop.md",
-              },
-              {
                 title: "Do Loop",
                 path: "/essentials/loops/do_loop.md",
+              },
+              {
+                title: "Foreach Loop",
+                path: "/essentials/loops/foreach_loop.md",
               },
               {
                 title: "While Loop",
@@ -124,31 +150,12 @@ module.exports = {
             ],
           },
           {
-            title: "Operators",
-            path: "/essentials/operators/comparison_operators",
-            collapsable: true,
-            children: [
-              {
-                title: "Comparison Operators",
-                path: "/essentials/operators/comparison_operators.md",
-              },
-              {
-                title: "Logical Operators",
-                path: "/essentials/operators/logical_operators.md",
-              },
-              {
-                title: "Arithmetic Operators",
-                path: "/essentials/operators/arithmetic_operators.md",
-              },
-              {
-                title: "String Operators",
-                path: "/essentials/operators/string_operators.md",
-              },
-              {
-                title: "Special Operators",
-                path: "/essentials/operators/special_operators.md",
-              },
-            ],
+            title: "Folders",
+            path: "/essentials/folders.md",
+          },
+          {
+            title: "Exceptions",
+            path: "/essentials/exceptions.md",
           },
           {
             title: "Sample",
@@ -166,6 +173,22 @@ module.exports = {
             path: "/object_orientation/classes.md",
           },
           {
+            title: "Properties",
+            path: "/object_orientation/properties.md",
+          },
+          {
+            title: "Methods",
+            path: "/object_orientation/methods.md",
+          },
+          {
+            title: "Constructors",
+            path: "/object_orientation/constructors.md",
+          },
+          {
+            title: "Objects",
+            path: "/object_orientation/objects.md",
+          },
+          {
             title: "Class Definitions",
             path: "/object_orientation/class_definitions/abstract_classes",
             collapsable: true,
@@ -181,20 +204,41 @@ module.exports = {
             ],
           },
           {
-            title: "Properties",
-            path: "/object_orientation/properties.md",
+            title: "Generic Classes",
+            path: "/object_orientation/generics.md",
+          },
+
+          {
+            title: "Operator Overloading",
+            path: "/object_orientation/operator_overloading.md",
           },
           {
-            title: "Methods",
-            path: "/object_orientation/methods.md",
+            title: "Assertions",
+            path: "/object_orientation/assertions.md",
+          },
+
+          {
+            title: "Inheritance",
+            path: "/object_orientation/inheritance.md",
           },
           {
-            title: "Constructors",
-            path: "/object_orientation/constructors.md",
+            title: "Interfaces",
+            path: "/object_orientation/interfaces.md",
+          },
+        ],
+      },
+      {
+        title: "Sets",
+        path: "/sets/list",
+        collapsable: true,
+        children: [
+          {
+            title: "List",
+            path: "/sets/list.md",
           },
           {
-            title: "Objects",
-            path: "/object_orientation/objects.md",
+            title: "Set Queries",
+            path: "/sets/set_queries.md",
           },
         ],
       },

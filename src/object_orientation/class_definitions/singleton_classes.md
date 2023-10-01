@@ -9,7 +9,9 @@ _Example_:
 
 ```gno
 single class AttachmentService {
-    void HandleAttachment(Attachment attachment) { // Some concrete implementation }
+    void HandleAttachment(Attachment attachment) {
+        // Some concrete implementation
+    }
 }
 ```
 
@@ -30,7 +32,9 @@ _Example_:
 
 ```gno
 single class AttachmentService {
-    void HandleAttachment(Attachment attachment) { // Some concrete implementation }
+    void HandleAttachment(Attachment attachment) {
+        // Some concrete implementation
+    }
 }
 ```
 

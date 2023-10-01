@@ -1,11 +1,9 @@
-# If Condition
+# If-Condition
 
-The if condition is used to execute code, but only if a certain condition is met.
+The if-condition is used to execute code, but only if a certain condition is met.
 The condition is expressed as a boolean, which can only evaluate to either `true` or `false`.
-If the condition equals `true`, the body of the condition will be executed, and if it equals `false`,
-it will be skipped.
-
-_Example:_
+If the condition equals `true`, the body of the condition will be executed, and if it equals
+`false`, it will be skipped.
 
 ```gno
 User user = CreateRandomUser()
@@ -40,10 +38,8 @@ if BOOLEAN_EXPRESSION {
 
 ## If-Else Condition
 
-An `else` condition can be used in an if-condition, which is used to execute code if the prior
-conditions are **not** met.
-
-_Example:_
+An `else` condition can be additionally defined in an if-condition, which is used to execute code
+if all prior conditions are **not** met.
 
 ```gno
 int x = 5
@@ -59,12 +55,10 @@ if x is 3 {
 
 ## If-Else-If Condition
 
-An `else if` condition can be used in an if-condition, which is used to execute if the condition(s)
-above are **not** met, but the condition of the `else if` **are** met. Once a condition in this
-construction has been met, no other conditions will be checked anymore, and the code continues after
-the condition.
-
-_Example:_
+An `else if` condition can be used additionally in an if-condition, which is used to execute code
+if all prior condition(s) are **not** met, but the condition of the `else if` **is** met. Once a
+condition in this construction has been met, no other conditions will be checked anymore,
+and the code continues after the condition.
 
 ```gno
 int x = 5
@@ -121,3 +115,33 @@ int c = if a and b then 1 else 5
 
 This can be a convenient way to quickly set a value inline, whilst avoiding a switch assignment.
 For three or more options, however, use a switch assignment.
+
+## Inline If
+
+You can specify exactly one expression inline in an if condition by using the `then` keyword.
+In that case, the condition body brackets `{` and `}` are replaced by the keyword.
+
+```gno
+if accountHasBeenCreated then SendConfirmationMail()
+else {
+    // ...
+}
+```
+
+This also works with `else` and `else if`.
+
+## Break
+
+You can break out of a condition using the `break` keyword.
+
+```gno
+int i = 0;
+
+if i is 0 {
+    print "Hello, "
+    break
+    print "World!"
+}
+
+// Only prints "Hello, "
+```

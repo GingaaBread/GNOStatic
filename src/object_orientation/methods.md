@@ -1,6 +1,6 @@
 # Methods
 
-Methods allow executing code outside of the main class.
+Methods allow defining behaviour for classes.
 A method must be declared in the body of a class and is structured like so:
 
 ```
@@ -21,8 +21,14 @@ There are the following method definitions:
 
 ## Data Type
 
-You can provide a data type to ensure that the returned type is the required type.
-However, it is optional and is left out in the documentation.
+It is optional to provide a data type to ensure that the returned type is the required type.
+If it is left out, the type is inferred by using the type of the first `get` declaration in the
+method. If there is no `get` declaration, the method is inferred to be a `void` method.
+
+It is recommended to use an explicit return type for complex methods and to ensure future
+compatibility. In simple and readable methods it can be helpful to let the type be inferred.
+
+_Inferred Example_:
 
 ```gno
 class A {
@@ -30,16 +36,21 @@ class A {
 
     Bar() => 0
 }
+```
 
+_Explicit Example_:
+
+```gno
 class B {
     void Foo() { }
 
-    int Bar() = 5
+    int Bar() => 5
 }
 ```
 
-The data type needs to be returned using the `return` keyword, unless the method is a void method.
-If the method is a void method, `return` exits out of the method call.
+The data type needs to be returned using the `get` keyword, unless the method is a void method.
+If the method is a void method, `get` exits out of the method call. If used, the type must not be
+inferred, however. but must be explicitly specified.
 
 ## Method Identifier
 
@@ -67,49 +78,21 @@ method `Foo(int a)` and a method `Foo(int b)`.
 
 This is known as method overloading.
 
-## Optional Parameters
-
-The `optional` keyword can be used before a parameter's data type to declare the parameter as
-optional, meaning that it can be omitted when called.
-
-It can only be used once for each type of all parameters.
-
-```gno
-// Allowed
-Foo(int a, optional int b, int c)
-
-// Allowed
-Foo(optional int a, int b, int c)
-
-// Not allowed (How does GNO know if a or b is used here: Foo(1, 0))
-Foo(optional int a, optional int b, int c)
-```
-
-If used, the optional values are included in all method combinations, meaning that in the example
-`Foo(int a, optional int b, int c)`, there could neither be a method
-`Foo(int a, int b, int c)`, nor `Foo(int a, int c)`.
-
-Use the keyword `exists` on optional parameters to check if they have been omitted or not.
-
-```gno
-Foo(optional string example) {
-    if example exists {
-        print example
-    }
-}
-```
+Note that visibility (see below) has no effect on method overloading. Therefore, you cannot have
+both a method `Foo()` and `foo()`, or `foo()` and `:foo()`.
 
 ## Hidden Method
 
 GNO does not use explicit protection modifiers like `private`, `public`, etc.
-By default, all classes can call all methods of all classes.
+By default, all classes can call all methods of all other classes in the same folder.
 
-A method can be hidden from other classes by using the variety operator `:` before the method name.
+A method can be hidden from other classes by declaring its name in _lowerCamelCase_, instead of
+_UpperCamelCase_.
 This works similar to `private` in other languages.
 
 ```gno
 class A {
-    :Foo() {
+    foo() {
 
     }
 }
@@ -120,24 +103,39 @@ class B {
     }
 }
 
-A().Foo() // Illegal
+A().foo() // Illegal
 B().Foo() // Legal
 ```
 
-Similarly, you can open a method for children of a class by using the variety operator `:` after
-the name of the method. This works similar to `protected` in many other languages.
+Sometimes, you want to hide a method from outside classes, but not from child-classes (this concept
+is explained in the chapter _Inheritance_). To do this, add the colon operator `:` before the name
+of the method. This works similar to `protected` in many other languages.
 
 ```gno
 class A {
-    Foo:() {
+    :foo() {
 
     }
 }
 ```
 
+When calling this class, the colon operator is not specified, however.
+
+```gno
+class B of A {
+    Test() {
+        parent.foo()
+    }
+}
+```
+
+::: tip
+The `parent` keyword is used to refer to the context of the parent class.
+:::
+
 ## Empty Parameters
 
-Empty parameters do not require the parentheses `(` and `).`
+Methods without parameters do not require the parentheses `(` and `)` in their definitions.
 
 ```gno
 class A {
@@ -151,8 +149,8 @@ class B {
 
 ## Method Calls
 
-When calling a method, it needs to be accessible and the arguments need to match the method's
-parameter list.
+When calling a method, it needs to be accessible to the caller, and the arguments need to match
+the parameter list of the method.
 
 If the method call is the last part of an expression, the parentheses `(` and `)` can be left out.
 

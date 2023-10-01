@@ -14,17 +14,13 @@ GNO utilises the following data types:
 
 In GNO values are assigned using the assignment operator `=`, followed by the desired value.
 
-Example:
-
 ```gno
 int age = 5
 ```
 
-GNO is statically typed, which means that you can forgo a variable assignment as long as the
-type of the variable is known during compilation. In that case, the variable will be initialised
-using the default value of its type.
-
-Example:
+GNO is statically typed, which means the type of a variable is known during compile time.
+You can let GNO infer a variable type. When declaring a primitive variable, it is automatically
+initialised to its default value. Primitive types cannot be `null`.
 
 ```gno
 boolean thisIsFalse
@@ -48,6 +44,8 @@ Example:
 
 ```gno
 print default of int // 0
+
+int x = 15
 ```
 
 ### Long Integer (long)
@@ -79,6 +77,8 @@ Example:
 
 ```gno
 print default of single // 0.0
+
+single weight = 85.5
 ```
 
 ### Double Precision Decimal (single)

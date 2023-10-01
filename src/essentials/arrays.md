@@ -70,15 +70,15 @@ print names[~2] // "John"
 print names[~3] // EXCEPTION
 ```
 
-## Array Length
+## Array Size
 
-Internally, arrays are `Sets`. To get the size of a set, the cardinality operator `|` is used like
-so:
+Internally, an array is a type of `Set`. To get the size of a set, the cardinality operator
+`size of` is used like so:
 
 ```gno
 string[] names = ["John", "Sarah", "Tom"]
 
-print |names| // 3
+print size of names // 3
 ```
 
 ## Anonymous Arrays
@@ -89,10 +89,10 @@ The data type of the array is inferred and all values of the array must be of th
 _Example_:
 
 ```gno
-print |["John", "Sarah", "Tom"]| // 3
+print size of ["John", "Sarah", "Tom"] // 3
 
-foreach day in ["Monday", "Sunday", "Friday"] {
-    print "Day is $day"
+foreach in ["Monday", "Sunday", "Friday"] {
+    print "Day is $it"
 }
 
 int magicNumber = [1, 3, 5, 8].over.Reversed().Skip(1).First()
@@ -101,5 +101,10 @@ print magicNumber // 5
 
 ## Iterable
 
-Internally, arrays are `Iterable`. This allows you to iterate over them in a `foreach`-loop, for
-example.
+Internally, arrays are `iterable`. This allows you to iterate over them in a `for-each`-loop.
+
+```gno
+numbers = [1, 2, 3]
+
+foreach number in numbers => print number** // 1, 4, 9
+```

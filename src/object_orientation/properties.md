@@ -1,6 +1,6 @@
 # Properties
 
-Properties are the attributes that you can define in classes. Example properties for a class _Car_
+Properties are attributes that you can define in classes. Example properties for a class _Car_
 could be _maxSpeed_, _colour_, _amountOfWheels_, etc.
 
 Properties **cannot** be placed inside the body of a class, but **must** be placed in the class
@@ -17,8 +17,8 @@ class Car (
 ```
 
 ::: warning
-Note how unlike in other other languages, there are no implicit private, package, protected or
-public protection levels. To know more about this see the chapter _Protection Levels_.
+Note how unlike in other other languages, there are no explicit private, package, protected or
+public keywords. To know more about this see the chapter _Protection Levels_.
 :::
 
 ## Getters
@@ -83,13 +83,13 @@ Note how the colour property is set to gray.
 There are cases where you don't want to have publicly accessible getters or setters.
 To hide a getter, you can either:
 
-- only give a property a setter, or
-- give a property neither a getter or a Setter
+- only provide a setter, or
+- provide neither a getter nor a setter
 
 To hide a setter, you can either:
 
-- only give a property a getter, or
-- give a property neither a getter or a setter
+- only provide a getter, or
+- provide neither a getter nor a setter
 
 ### Setter-Only
 
@@ -129,7 +129,7 @@ class Sample {
 
 Note, however, how the `maxSpeed` property cannot be accessed.
 
-## Getter-Only
+### Getter-Only
 
 Only providing a getter is done using the `:get` suffix, and works just the same, but it only
 provides a getter, but not the setter.
@@ -140,14 +140,14 @@ Providing neither a getter, nor a setter is done using the `:` suffix.
 
 ## Custom Getter
 
-This behaviour is fine for simple getters, but sometimes it is necessary to perform certain code
-before getting a value, checking if the value should actually be added, etc.
+This behaviour is fine for simple getters, but sometimes it is necessary to perform more complex
+code before getting a property.
 For these cases, a custom getter can be used instead of the default getter:
 
 ```gno
 class Car (
     int maxSpeed with get {
-        Logger.Log "Getting car's max speed."
+        Logger.Log("Getting car's max speed.")
         get it
     },
     Color colour,
@@ -156,11 +156,11 @@ class Car (
 ```
 
 Note how a custom getter is specified using the keywords `with` and `get` and behaves like a method.
-A custom getter must have a return statement in all branches.
+A custom getter must have a get statement in all branches, yielding the respective value.
 The identity operator `it` inside a custom getter always refers to the property.
 
 ::: tip
-The identity operator can be left out if it is the only or leftmost part of the return expression.
+The identity operator can be left out if it is the only or last part of the expression.
 :::
 
 ## Custom Setter
@@ -196,7 +196,7 @@ You can also use both a custom getter and setter for properties:
 
 ```gno
 class Car (
-    int maxSpeed with
+    int maxSpeed with {
         set {
             if > 120 {
                 print "Car is too fast to be set!"
@@ -204,9 +204,10 @@ class Car (
         }
 
         get {
-            Logger.Log "Getting car's max speed."
+            Logger.Log("Getting car's max speed.")
             get
-        },
+        }
+    },
     Color colour,
     int amountOfWheels
 )
@@ -244,8 +245,8 @@ _Example_:
 
 ```gno
 class Car (
-    :int maxSpeed,
     Color colour,
+    :int maxSpeed,
     :int amountOfWheels
 )
 

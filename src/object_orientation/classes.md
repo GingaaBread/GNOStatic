@@ -3,7 +3,7 @@
 Classes are templates of data that you can create and manipulate. In GNO, classes follow the
 following layout:
 
-```
+```gno
 [Class Definitions] class [Class Identifier] [Class Inheritance] (
     [Class Properties]
 ) {
@@ -62,8 +62,8 @@ enum Weekday {
 class Calendar (
     int year,
     int month,
-    Weekday weekday,
-    int day
+    int day,
+    Weekday weekday
 ) {
     IncrementDay() {
         if day < DaysInMonth(month, year) {
@@ -87,15 +87,11 @@ class Calendar (
     }
 
     IsLeapYear(int year) {
-        get
-            year mod 4 is 0 and
+        get year mod 4 is 0 and
             year mod 100 is not 0 or
             year mod 400 is 0
     }
 
-    GetNextWeekday() => switch weekday {
-        SATURDAY => Weekday.SUNDAY
-        default => weekday + 1
-    }
+    GetNextWeekday() => if weekday is SUNDAY then Weekday.MONDAY else weekday + 1
 }
 ```

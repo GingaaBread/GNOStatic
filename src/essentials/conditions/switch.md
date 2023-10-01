@@ -1,6 +1,7 @@
 # Switch
 
-The switch statement is used to evaluate an expression and select an appropriate option.
+The switch construction is used to evaluate an expression and execute code based on the evaluation
+of that expression.
 
 Consider the following example, which assigns a different value to `y`, depending on the value of
 the variable `x`.
@@ -60,7 +61,8 @@ However, it can be dropped in the following cases:
 1. the identity is used as a method argument of a method with exactly one parameter, which does not
    have a method with the same name with no parameters
 2. the identity is the left operand of a single operational expression
-   :::
+
+:::
 
 Based on this, the same example can be simplified to:
 
@@ -110,8 +112,8 @@ print y // 0
 
 ## Default
 
-The `default` keyword is used to provide a fallback option in a switch statement, which is selected
-if no other options have been selected. In that regard it behaves like an `else` in an if condition.
+The `default` keyword is used to provide a fallback option in a switch statement, which is executed
+if no other options have been selected. In that regard it behaves like an `else` in an if-condition.
 
 Example:
 
@@ -168,3 +170,13 @@ print y // -1
 In both a switch and a switch assignment, you can list more than one evaluation in each case.
 If used, this is logically equivalent to the `or` operator.
 Separate the list items by using the `,` operator.
+
+```gno
+x = 5
+
+switch x {
+    case 1, 2, 3 => print "Small"
+    case 4, 5, 6 => print "Medium"
+    default => print "Large"
+}
+```

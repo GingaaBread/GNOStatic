@@ -2,11 +2,13 @@
 
 ## Not Operator "not"
 
-The `not` keyword is an operator returning the negated right boolean operand.
+> Type: unary keyword operator
 
-::: tip
+The `not` keyword operator returns the negated right boolean operand.
+
+::: warning
 Note that the result is not applied to the operand, but returned.
-If you want to apply the negated operation, use the boolean's `Flip()` method, instead.
+If you want to apply the negated operation, use the boolean's `Negate()` method, instead.
 :::
 
 Example:
@@ -17,10 +19,14 @@ print not false // true
 print not (true or false and true) // false
 ```
 
-> The example also shows that the not operator only affects the operand to its right. Use
-> Use `(` and `)` to structure operands.
+::: tip
+The example also shows that the not operator only affects the operand to its right. Use
+Use `(` and `)` to structure operands.
+:::
 
 ## And Operator "and"
+
+> Type: binary keyword operator
 
 The `and` keyword operator returns `true` if **both** operands are `true`. If either or both are
 `false`, it returns `false`, instead.
@@ -31,9 +37,12 @@ Example:
 print true and true // true
 print false and false // false
 print true and false // false
+print false and true // false
 ```
 
 ## Or Operator "or"
+
+> Type: binary keyword operator
 
 The `or` keyword operator returns `true` if **at least one** operand is `true`. If both are
 `false`, it returns `false`, instead.
@@ -44,6 +53,7 @@ Example:
 print true or true // true
 print false or false // false
 print true or false // true
+print false or true // true
 ```
 
 ::: danger
@@ -54,6 +64,8 @@ if necessary, and behave like `&&` and `||` in other languages. There are no eag
 
 ## Either Or Operator "xor"
 
+> Type: binary keyword operator
+
 The `xor` keyword operator returns `true` if **one** operand is `true`. If both are `false` or both
 are `true`, it returns `false`, instead.
 
@@ -61,13 +73,17 @@ Example:
 
 ```gno
 print true xor true // false
-print false or false // false
-print true or false // true
+print false xor false // false
+print true xor false // true
+print false xor true // true
 ```
 
 ## Boolean Literals
 
-Note that the examples above are specified for simplicity. They do not, however, compile!
+::: danger
+Note that the examples above are given because they are simple to understand. They do not, however,
+compile!
+:::
 
 In GNO, the `true` and `false` literals **cannot** be used as either a left or right operand in any
 binary logical operation.
@@ -83,9 +99,11 @@ print true xor something // "true" does not matter -> not something
 print false xor something // "false" does not matter -> something
 ```
 
+Similarly, boolean variables that the compiler determines to be constant, cannot be used either.
+
 ## Logical Operator Order
 
-1. parentheses to change evaluation order
+1. parentheses
 2. and
 3. xor
 4. or
