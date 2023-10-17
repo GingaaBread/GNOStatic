@@ -61,6 +61,10 @@ module.exports = {
             path: "/essentials/programs.md",
           },
           {
+            title: "Folders",
+            path: "/essentials/folders.md",
+          },
+          {
             title: "Data Types",
             path: "/essentials/datatypes.md",
           },
@@ -150,16 +154,12 @@ module.exports = {
             ],
           },
           {
-            title: "Folders",
-            path: "/essentials/folders.md",
-          },
-          {
             title: "Exceptions",
             path: "/essentials/exceptions.md",
           },
           {
-            title: "Sample",
-            path: "/essentials/sample.md",
+            title: "Comments",
+            path: "/essentials/comments.md",
           },
         ],
       },
@@ -173,12 +173,35 @@ module.exports = {
             path: "/object_orientation/classes.md",
           },
           {
+            title: "Class Definitions",
+            path: "/object_orientation/class_definition/abstract_classes",
+            collapsable: true,
+            children: [
+              {
+                title: "Abstract Classes",
+                path: "/object_orientation/class_definition/abstract_classes.md",
+              },
+              {
+                title: "Iterable Classes",
+                path: "/object_orientation/class_definition/iterable_classes.md",
+              },
+              {
+                title: "Singleton Classes",
+                path: "/object_orientation/class_definition/singleton_classes.md",
+              },
+            ],
+          },
+          {
             title: "Properties",
             path: "/object_orientation/properties.md",
           },
           {
             title: "Methods",
             path: "/object_orientation/methods.md",
+          },
+          {
+            title: "Protection Levels",
+            path: "/object_orientation/protection_levels.md",
           },
           {
             title: "Constructors",
@@ -189,25 +212,9 @@ module.exports = {
             path: "/object_orientation/objects.md",
           },
           {
-            title: "Class Definitions",
-            path: "/object_orientation/class_definitions/abstract_classes",
-            collapsable: true,
-            children: [
-              {
-                title: "Abstract Classes",
-                path: "/object_orientation/class_definitions/abstract_classes.md",
-              },
-              {
-                title: "Singleton Classes",
-                path: "/object_orientation/class_definitions/singleton_classes.md",
-              },
-            ],
-          },
-          {
             title: "Generic Classes",
             path: "/object_orientation/generics.md",
           },
-
           {
             title: "Operator Overloading",
             path: "/object_orientation/operator_overloading.md",
@@ -228,17 +235,47 @@ module.exports = {
         ],
       },
       {
-        title: "Sets",
-        path: "/sets/list",
+        title: "Advanced",
+        path: "/advanced/identifiers",
         collapsable: true,
         children: [
           {
-            title: "List",
-            path: "/sets/list.md",
+            title: "Identifiers",
+            path: "/advanced/identifiers.md",
           },
           {
-            title: "Set Queries",
-            path: "/sets/set_queries.md",
+            title: "Keywords",
+            path: "/advanced/keywords.md",
+          },
+          {
+            title: "Coding Conventions",
+            path: "/advanced/coding_conventions.md",
+          },
+          {
+            title: "Sets",
+            path: "/advanced/sets/list",
+            collapsable: true,
+            children: [
+              {
+                title: "List",
+                path: "/advanced/sets/list.md",
+              },
+              {
+                title: "Unless Condition",
+                path: "/advanced/sets/set_queries.md",
+              },
+            ],
+          },
+          {
+            title: "Builtins",
+            path: "/advanced/builtins/print",
+            collapsable: true,
+            children: [
+              {
+                title: "Print",
+                path: "/advanced/builtins/print.md",
+              },
+            ],
           },
         ],
       },

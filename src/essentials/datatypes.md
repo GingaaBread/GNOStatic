@@ -81,9 +81,9 @@ print default of single // 0.0
 single weight = 85.5
 ```
 
-### Double Precision Decimal (single)
+### Double Precision Decimal (double)
 
-The double-precision decimal _single_ is a 64-bit signed IEEE-754 floating point.
+The double-precision decimal _double_ is a 64-bit signed IEEE-754 floating point.
 
 The default value of a double is 0.0d.
 
@@ -97,6 +97,11 @@ print default of double // 0.0d
 
 double x = 1.25d
 ```
+
+::: danger
+_Never_ use singles or doubles in scenarios where critical accuracy is required (for example, never
+use the double type to represent money)!
+:::
 
 ### Single Character (char)
 

@@ -9,7 +9,7 @@ int a = b as int
 ```
 
 If a class does not have a casting definition for the required type, the program will not compile.
-If the cast is not allowed, a `CastingException` is thrown.
+If the cast is not allowed, on the other hand, a `CastingException` is thrown.
 
 _Example Illegal Program_:
 
@@ -19,7 +19,8 @@ class A
 print A() as int
 ```
 
-Note how the class a cannot be cast to an int because class A has no casting definition for an int.
+Note how the object `A()` cannot be cast to an int because class A has no casting definition for an
+int. In other words, GNO does not know how to redefine the object appropriately as an integer.
 
 _Example Illegal Cast_:
 
@@ -28,25 +29,33 @@ b = "abc"
 int a = b as int
 ```
 
-Note how the string cannot be cast into an integer. An exception is thrown.
+Note how the string _could_ be cast into an integer, but the string specified in `b` is not a
+number. Therefore, the program can be compiled, but a `CastingException` is thrown at runtime.
 
 ## Creating Casting Definitions
 
-Create a casting definition in the body of a class using the `as` keyword. Separate the casting
-types by a comma. You can also use complex functions to represent the type.
+Create a casting definition in the body of a class using the `as` keyword.
+You can use the arrow operator `=>` to return a type inline without the need
+to use the `get` keyword, or define complex functions to represent the type. Casting definitions
+defined as functions do not receive parentheses or arguments. Like all other methods, casting
+definitions need to return the defined type or thrown an exception.
 
 ```gno
 class Circle (
     int radius
 ) {
     as {
-        int => radius,
-        string => "Radius of the circle is $radius",
+        int => radius
+        string => "Radius of the circle is $radius"
         CustomClass {
             if radius > 100 {
                 get CustomClass()
-            } else throw CastingError()
+            } else throw CastingException()
         }
     }
 }
 ```
+
+You can only throw `CastingException` exceptions in casting definitions. You can use the string
+shorthand `throw ""`, which will throw a `CastingException` with the string as the exception
+message.

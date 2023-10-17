@@ -60,21 +60,6 @@ print 3 >= 5 // false
 print 3 >= 3 // true
 ```
 
-## Divides Operator |
-
-> Type: binary
-
-The `|` operator returns `true` if the left integer operand divides the right integer operand.
-Else, it returns `false`.
-
-_Example:_
-
-```gno
-print 3 | 6 // true
-print 3 | 5 // false
-print 1.5 | 3 // ERROR: 1.5 is a single
-```
-
 ## Equal To Operator "is"
 
 > Type: binary keyword operator
@@ -82,12 +67,27 @@ print 1.5 | 3 // ERROR: 1.5 is a single
 The `is` keyword operator returns `true` if the left operand equals the right operand.
 Else, it returns `false`.
 
+If the right operand is a type, this checks for type equality of both operands. It returns `true` if
+the type of the left operand is the type of the right operand. Else, it returns `false`. Note that
+it does not return true, if the type of the left operand is derived of the right operand.
+
 _Example:_
 
 ```gno
 print 3 is 3 // true
 print 3 is 5 // false
 print 1.5 is 3 // false
+
+print 3 is int // true
+print 3 is bool // false
+
+class A
+class B of A
+a = A()
+b = B()
+
+print a is A // true
+print b is A // false
 ```
 
 ::: tip
@@ -115,7 +115,7 @@ print isMarried // true
 > Type: binary keyword operator
 
 The `is` keyword can be combined with the `of` keyword to create the type equals operator.
-The operator returns `true` if the type of the left operand equals the right type operand. Else, it
+The operator returns `true` if the type of the left operand equals or is derived of the right type operand. Else, it
 returns `false`.
 
 _Example:_
@@ -128,6 +128,14 @@ myObj = MyObj()
 
 print myObj is of single // false
 print myObj is of MyObj // true
+
+class A
+class B of A
+a = A()
+b = B()
+
+print a is of A // true
+print b is of A // true
 ```
 
 ## Cast Equal To Operator "equals"
@@ -135,20 +143,20 @@ print myObj is of MyObj // true
 > Type: binary keyword operator
 
 The `equals` keyword operator returns `true` if the left operand equals the right operand after
-casting the type of the right operand to the type of the left operand. Else, it returns `false`.
+casting the type of the left operand to the type of the right operand. Else, it returns `false`.
 
 ```gno
-print 3 equals 5 // true
-print "5" equals 5 // true
-print 5.5 equals 5 // false
-print 5 equals 5.5 // true
+print 3 equals 5 // false
+print 5 equals "5" // true
+print 5 equals 5.5 // false
+print 5.5 equals 5 // true
 ```
 
 Note that this is syntactic sugar for a simple cast:
 
 ```gno
-print 3 equals 5 as int // true
-print "5" equals 5 as string // true
-print 5.5 equals 5 as double // false
-print 5 equals 5.5 as int // true
+print 3 as int equals 5 // false
+print 5 as string equals "5" // true
+print 5 as double equals 5.5 // false
+print 5.5 as int equals 5 // true
 ```

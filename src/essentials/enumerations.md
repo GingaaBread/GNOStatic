@@ -35,17 +35,6 @@ if month is Month.JANUARY {
 }
 ```
 
-If checking for equality using the `is` operator, or non-equality using the `is not` operator,
-the enumeration identifier can be dropped.
-
-```gno
-month = Month.FEBRUARY
-
-if month is JANUARY {
-    print "Happy new year! 🥳"
-}
-```
-
 ## Identities
 
 An enumeration identity is a value assigned to an enumeration constant. By default, each constant
@@ -163,5 +152,8 @@ enum CardValue {
  */
 ```
 
-If used, the constant uses the English spelling of the integer in _UPPER_SNAKE_CASE_.
-If multiple ranges are used, their values **cannot** intersect.
+If used, the constant uses the English spelling of the integer in _UPPER_SNAKE_CASE_. Note that this
+is just syntactic sugar, you cannot define constant enumeration values twice and, if multiple ranges
+are used, their values **cannot** intersect.
+
+For example, you cannot use `1..5` and `TWO` in the same enumeration.

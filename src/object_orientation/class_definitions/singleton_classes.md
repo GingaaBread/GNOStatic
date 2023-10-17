@@ -41,3 +41,28 @@ single class AttachmentService {
 ```gno
 AttachmentService.HandleAttachment(Attachment("important.pdf"))
 ```
+
+## Invoking Singletons
+
+It can be beneficial to enforce lazy initialization of a singleton before allowing its methods to
+be called. To do this, use the `invoke single` class definition, instead.
+
+If used, a singleton can only be called after it has been invoked.
+
+```gno
+invoke single class AttachmentService {
+    void HandleAttachment(Attachment attachment) {
+        // Some concrete implementation
+    }
+}
+```
+
+```gno
+// Error: AttachmentService has not been invoked, yet
+AttachmentService.HandleAttachment(Attachment("important.pdf"))
+
+invoke AttachmentService
+
+// Now, the singleton can be used
+AttachmentService.HandleAttachment(Attachment("important.pdf"))
+```

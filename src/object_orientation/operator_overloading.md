@@ -57,7 +57,7 @@ v2 = Vector2(-1.25, 5.95)
 print v1.Add(v2)
 ```
 
-However, if we know want to multiply another vector, it starts to get messy:
+However, if we now want to multiply another vector, it starts to get messy:
 
 ```gno
 class Vector2 (

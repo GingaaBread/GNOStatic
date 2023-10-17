@@ -77,7 +77,7 @@ print "Flour" is in shoppingList // false
 
 > Type: unary keyword operator
 
-The cardinality operator is wrapped around sets to return their size.
+Return the size of a set.
 
 _Example_:
 
@@ -87,6 +87,18 @@ print size of arr // 3
 
 Item[,] shoppingList = ["Apple", "Milk", "Butter", "Flour"]
 print size of shoppingList
+```
+
+## Default Type Operator `default of`
+
+> Type: unary keyword operator
+
+Used to get the default value of a type.
+
+_Example_:
+
+```gno
+print default of boolean // false
 ```
 
 ## Arrow Operator `=>`

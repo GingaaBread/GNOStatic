@@ -34,7 +34,6 @@ E:
 - else
 - empty
 - enum
-- entity
 - equals
 - event
 - exists
@@ -75,7 +74,6 @@ O:
 - or
 - other
 - overridden
-- optional
 
 S:
 

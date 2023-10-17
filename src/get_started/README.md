@@ -1,12 +1,11 @@
 # Get Started
 
-GNO is a strongly typed, object-oriented programming language designed to be convenient and readable. It's three main focuses are:
+GNO is a strongly typed, object-oriented programming language designed to be convenient and readable.
+It's three main focuses are:
 
 - Simplicity
 - Readability
 - Conciseness
-
-Despite its object-oriented approach, GNO was created with functional programming in mind.
 
 ## Hello, World!
 
@@ -23,9 +22,9 @@ Finally, compile and run the program. If the console displays `Hello World! 💜
 
 ### Statically Typed
 
-GNO is statically typed, which means that the type of a variable is always known during compilation.
-However, one of the main principles of GNO is type inference, which allows you to declare a
-variable and let GNO infer its type on its own.
+GNO is statically typed, which means that the type of a variable is already known during compilation.
+One of the main principles of GNO is type inference, which allows you to declare a variable and let
+GNO infer its type on its own.
 
 ```gno
 // Type inference
@@ -38,15 +37,40 @@ print "My favourite food is $food" // Output: "My favourite food is Water Melon 
 print "My favourite drink is $drink" // Output: "My favourite drink is Water 🌊"
 ```
 
-### Semicolon-less
+::: tip
+GNO recommends using type inference for simple types where the context of the type is clear, and
+explicitly declaring variable types in more complex scenarios.
+:::
+
+### No Semicolons
 
 There are no semicolons in GNO. Instead, it uses line ends to determine how to interpret your code.
-GNO still uses brackets, however, as it is **not** an indentation-focused language.
+You can use the `\` operator to continue onto the next line without ending the current expression.
 
-### No Brackets
+```gno
+print "Hello World!"
+print "Hello World!"; // <-- does NOT compile!
 
-There are no brackets in loops and conditions, and it is completely optional to provide brackets
-in method calls, and other constructs.
+longExpression = select all from userData where it.name.StartsWith("Adm")
+longExpression2 = select all from userData \
+    where it.name.StartsWith("Adm")
+```
+
+### Brackets
+
+GNO uses curly brackets for member bodies. It is **NOT** an indented language.
+
+```gno
+class A {
+
+}
+
+switch type {
+
+}
+```
+
+Round brackets are optional in loops, conditions, builtin method calls, and many other members.
 
 ```gno
 print "Hello World!" // Output: "Hello World!"
@@ -56,14 +80,14 @@ if x is 5 {
     // ...
 }
 
-foreach item in Items {
-    AddItemToInventory item
+foreach item in items {
+    AddItemToInventory(item)
 }
 ```
 
-## Readability-Oriented
+## Focus On Readability
 
-GNO uses a multitude of text alternatives to traditional operators, such as the `and` keyword,
+GNO uses a multitude of keywords instead of traditional operators, such as `and`,
 instead of the `&&` operator in many other languages, for example. Other examples include `is`
 instead of `==`, `not` instead of `!`, or `exists` instead of `!= null`.
 
@@ -72,88 +96,85 @@ animal = "Lion 🦁"
 
 if animal is "Panda 🐼" {
     print "You have encountered a wild panda!"
-} else if animal is "Lion 🦁" {
-    print "You'd better run!"
 }
 ```
 
 ## Comfortable Object-Orientation
 
 GNO is designed to be an object-oriented programming language that, despite its focus on
-readability, tries to eliminate the typical _writing mania_ of object-oriented languages. It
-emphasises simplicity and attempts to minimise the amount of _'thoughtless'_ object-oriented code,
-such as constructors, getter & setter methods, fields, equality methods, and so on...
+readability, tries to eliminate the typical boilerplate code of object-oriented languages.
 
 ### Protection Levels
 
-GNO does not have protection levels (public, private, protected, package-level, etc.) in the
-traditional sense. Consider the following example:
+GNO does not have explicit protection levels (public, private, protected, package-level, etc.).
+Consider the following example:
 
 ```gno
 class Car
 ```
 
 The class `Car` does not have a preceding `public` or `private` keyword, but can be accessed by all
-other classes in the same folder. Let's add some properties to our cars:
+other classes in the same folder. Let's add some properties to our car class:
 
 ```gno
 class Car
 (
+    Colour colour,
     double weight,
-    int maxVelocity,
-    Colour colour
+    int maxVelocity
 )
 ```
 
 Again, note how none of these properties have an explicit protection level. Nonetheless, classes can
 use these properties by accessing their internal `get`-methods and change their properties by
-accessing their internal `set`-methods:
+accessing their internal `set`-methods, which all properties receive automatically in GNO:
 
 ```gno
-car1 = Car(1400.50, 200, Colour.RED)
-car2 = Car(2400.50, 180, Colour.BLACK)
+car1 = Car(1400.50, 200, Colour.RED) // Creating a red car
+car2 = Car(2400.50, 180, Colour.BLACK) // Creating a black car
 
 print car1.maxVelocity // Output: "200"
 
 car2.weight = 1200.25
 ```
 
-As you can see, by default, properties behave like `public` members in a lot of other languages. But
+Note how, by default, properties behave like `public` members in a lot of other languages. But
 what if we don't want other classes to be able to access a certain property? Well, we simply tell
-GNO to only provide the `set` method:
+GNO to only share the `set` method:
 
 ```gno
 carTest = Car(1000d, 220, Colour.RED)
-print carTest.weight // Compilation Error: Cannot access `get` method of carTest
+print carTest.weight // <--- Will not compile
 
 class Car
 (
-    double:set weight
-    int maxVelocity
-    Colour colour
-)
-```
-
-And if we don't want other classes to change properties? You've guessed it: We tell GNO to only provide
-the `get` method:
-
-```gno
-class Car
-(
-    double:get weight
-    int maxVelocity
+    double:set weight,
+    int maxVelocity,
     Colour colour
 )
 ```
 
 And of course, we can completely cut them off from other classes by telling GNO to supply neither
-method (thus, behaving like `private` members in a lot of other languages):
+method (thus, behaving like `protected` members in a lot of other languages):
 
 ```gno
 class Car
 (
-    double: weight
-    int maxVelocity
+    double: weight,
+    int maxVelocity,
+    Colour colour
+)
+```
+
+GNO uses identifiers to add additional features to properties. For example, to hide properties
+from child classes, the identifier must start with an underscore (thus, behaving like `private`
+members in a lot of other languages):
+
+```gno
+class Car
+(
+    double: _weight,
+    int maxVelocity,
     Colour colour
 )
 ```
@@ -162,30 +183,16 @@ class Car
 
 The prior example has also shown how easy it is to create objects. GNO will automatically create a
 primary constructor that expects all specified properties. But what if you want to exclude certain
-properties from the primary constructor? Simply tell GNO by preceding it with the colon `:` (one of
-the most important GNO operators, by the way!):
+properties from the primary constructor? Simply tell GNO by preceding it with the colon `:`.
 
 ```gno
 carTest = Car(1000d, 220, Colour.RED)
 class Car
 (
-    double: weight
-    int maxVelocity
-    Colour colour
+    double: weight,
+    int maxVelocity,
+    Colour colour,
     :Person owner
-)
-```
-
-And of course, you can also tell GNO that an excluded variable should not have a `get`-method,
-`set`-method or neither, just as we have seen above.
-
-```gno
-class Car
-(
-    double: weight
-    :int:get maxVelocity
-    :Colour:set colour
-    :Person: owner
 )
 ```
 

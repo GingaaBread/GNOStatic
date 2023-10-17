@@ -3,30 +3,30 @@
 The switch construction is used to evaluate an expression and execute code based on the evaluation
 of that expression.
 
-Consider the following example, which assigns a different value to `y`, depending on the value of
-the variable `x`.
-
 _Example:_
 
 ```gno
-int x = 5
-int y
+enum UserType { USER, ADMIN, SUPPORT }
+```
 
-switch x {
-    case 1 {
-        y = 2
+```gno
+user = UserType.ADMIN
+
+switch user {
+    case UserType.USER {
+        print "Showing menu for user"
+        LockContent()
     }
 
-    case 3 {
-        y = 1
+    case UserType.ADMIN {
+        print "Showing menu for admin"
     }
 
-    case 5 {
-        y = 0
+    case UserType.SUPPORT {
+        print "Showing menu for support"
+        ShowHelpPanel()
     }
 }
-
-print y // 0
 ```
 
 Note that you can provide any boolean expression in a case header.
@@ -110,9 +110,9 @@ switch x {
 print y // 0
 ```
 
-## Default
+## Fallback Options
 
-The `default` keyword is used to provide a fallback option in a switch statement, which is executed
+The `any` keyword is used to provide a fallback option in a switch statement, which is executed
 if no other options have been selected. In that regard it behaves like an `else` in an if-condition.
 
 Example:
@@ -125,7 +125,7 @@ switch x {
     case int.IsEven() => y = 2
     case > 5 => y = 1
     case + 1 is not 1 => y = 0
-    default => y = -1
+    any => y = -1
 }
 
 print y // -1
@@ -142,27 +142,36 @@ Example:
 ```gno
 int x
 int y = switch x {
-    case int.IsEven() => 2
-    case > 5 => 1
-    case + 1 is not 1 => 0
-    default => -1
+    int.IsEven() => 2
+    > 5 => 1
+    + 1 is not 1 => 0
+    any => -1
 }
 
 print y // -1
 ```
 
-In switch assignments the `case` keywords can be left out, if an inline case is used.
+In switch assignments the `any` keyword is used to provide a fallback case. However, there are
+cases where throwing an exception is preferred. In these cases, you can preface the `switch` with
+the `throw` keyword. This will replace the fallback case by a `NotImplementedException`. Note that
+you cannot use the `any` fallback in this case.
 
 ```gno
 int x
+int y = throw switch x {
+    int.IsEven() => 2
+    > 5 => 1
+    + 1 is not 1 => 0
+}
+
+// =
+
 int y = switch x {
     int.IsEven() => 2
     > 5 => 1
     + 1 is not 1 => 0
-    default => -1
+    any => throw NotImplementedException()
 }
-
-print y // -1
 ```
 
 ## Case List
@@ -177,6 +186,6 @@ x = 5
 switch x {
     case 1, 2, 3 => print "Small"
     case 4, 5, 6 => print "Medium"
-    default => print "Large"
+    any => print "Large"
 }
 ```
