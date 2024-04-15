@@ -13,11 +13,7 @@ following layout:
 
 ## Class Definitions
 
-Class definitions define the type of the class. There are the following class definitions:
-
-- abstract
-- single
-- iterable
+Class definitions define the type of the class.
 
 The definitions are explained in detail in the chapter _Class Definitions_.
 

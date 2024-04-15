@@ -1,6 +1,13 @@
 # Data Types
 
-GNO utilises the following data types:
+GNO is a statically-typed language, where every variable has a type that is already known during
+compilation. In GNO, variables can have three types:
+
+1. primitive data types
+2. objects
+3. enumeration constants
+
+GNO utilises the following primitive data types:
 
 - **int**: 32-bit signed integers
 - **long**: 64-bit signed integers
@@ -9,6 +16,36 @@ GNO utilises the following data types:
 - **char**: UTF-16 character
 - **string**: A string of UTF-16 characters
 - **boolean**: Either _true_ or _false_
+
+## Nullable Types
+
+By default, variables of primitive types and enumeration constants, are not nullable cannot be
+assigned `null`. To declare them as nullable, the `?` operator is used directly after the type.
+
+```gno
+Animal animal = null // <--- this will not compile because Animal is not nullable
+Animal? animal = null
+
+string name = null // <--- this will not compile because string is not nullable
+string? name = null
+
+enum Animal { FROG, LION, DONKEY, ELK }
+```
+
+Similarly, by default, objects are nullable and can be assigned `null`.
+Non-null assertions can be used to automatically throw an AssertionException when a variable is
+expected to be not null, but is evaluated to null at compile-time.
+
+```gno
+Address a1 = null
+Example.ValidateAddress(a1) // <--- throws an AssertionException
+
+class Example {
+    static ValidateAddress(Address! address) {
+        // ...
+    }
+}
+```
 
 ## Assignments
 
@@ -20,7 +57,7 @@ int age = 5
 
 GNO is statically typed, which means the type of a variable is known during compile time.
 You can let GNO infer a variable type. When declaring a primitive variable, it is automatically
-initialised to its default value. Primitive types cannot be `null`.
+initialised to its default value.
 
 ```gno
 boolean thisIsFalse

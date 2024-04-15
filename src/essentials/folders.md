@@ -10,7 +10,7 @@ is the first and top-most part of a GNO file (unless the file contains the progr
 which is always the first part of a GNO file).
 
 ::: warning
-A folder contains inner code. Therefore, unlike all other structs, it **requires** a body.
+A folder **requires** a non-empty body.
 :::
 
 ```gno
@@ -104,3 +104,20 @@ in Samples {
 
 Imports must be placed directly above the importing class.
 You **cannot** import a struct without using it in the importing class.
+
+If only one folder is defined in a file, the folder body can be left out. Instead, only
+the `in` header is placed at the top of the file.
+
+```gno
+in Samples {
+    class Sample1
+    class Sample2
+}
+```
+
+```gno
+in Samples
+
+class Sample1
+class Sample2
+```

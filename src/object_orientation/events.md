@@ -21,8 +21,21 @@ event does not require an object as an argument.
 
 ## Event Visibility
 
-Events are `gettable`, but not `settable`. They are `unsealed`, and not included in the object's
-constructor. Method names defined in the class must not have the same identifier as the event name.
+Events are `gettable`, but not `settable`. They are not part of the object's constructor.
+Event names must be unique within their class, no other member may share that name.
+
+By default, members can both subscribe to events and invoke them.
+To only allow subscriptions, but not invocation functionality, the `sealed` keyword is used.
+
+```gno
+single class OrderService {
+    event {
+        sealed OnNewOrder<Order>,
+        OnCancelOrder<Order>,
+        OnCancelAllOrders
+    }
+}
+```
 
 ## Subscribing To Events
 
@@ -37,6 +50,25 @@ OrderService.OnCancelOrder += NotifyOfCancelledOrder
 
 NotifyOfCancelledOrder(Order order) {
     order.customer.WriteMail("Your order has been cancelled. Order: $order")
+}
+```
+
+When subscribing to an event, methods may waive the event arguments, which can help reduce
+boilerplate code in certain scenarios. To do so, the `empty` keyword is appended before the method
+name. It is recommended to be careful when using this approach.
+
+```gno
+// Supplies the current turn as an integer
+TurnService.OnNewTurn += SampleSpawnHandCard
+TurnService.OnNewTurn += empty SpawnHandCard
+
+// This method is not actually interested in the specific event arguments
+SampleSpawnHandCard(int currentTurn) {
+    print "Spawned a new hand card!"
+}
+
+SpawnHandCard() {
+    print "Spawned a new hand card!"
 }
 ```
 
@@ -82,41 +114,11 @@ OrderService.OnCancelOrder(Order("Example Order"))
 // [No output]
 ```
 
-However, sometimes you might want to only unsubscribe from a single instance. In this case, you
-must use the `as` operator to define a subscription as a method variable.
-Note that in GNO method variables are globally accessible, no matter where declared.
-
-```gno
-NotifyOfCancelledOrder(Order order, int id) {
-    printin id
-    order.customer.WriteMail(" Your order has been cancelled. Order: $order")
-}
-
-// Subscribe to the OnCancelOrder event three times
-OrderService.OnCancelOrder += NotifyOfCancelledOrder(it, 1) as cancelOrder1
-OrderService.OnCancelOrder += NotifyOfCancelledOrder(it, 2) as cancelOrder2
-OrderService.OnCancelOrder += NotifyOfCancelledOrder(it, 3) as cancelOrder3
-
-// Invoke the event to see the outputs
-OrderService.OnCancelOrder(Order("Example Order"))
-// 1 Your order has been cancelled. Order: Example Order
-// 2 Your order has been cancelled. Order: Example Order
-// 3 Your order has been cancelled. Order: Example Order
-
-OrderService.OnCancelOrder -= cancelOrder1
-
-// Invoke the event again, now that we unsubscribed from the event
-OrderService.OnCancelOrder(Order("Example Order"))
-// 2 Your order has been cancelled. Order: Example Order
-// 3 Your order has been cancelled. Order: Example Order
-```
-
 ## Invoking Events
 
-Objects can invoke events just like how methods are called.
-If the event uses a generic value, it must be passed as an argument.
-The order of arguments needs to be the same as the generic values if multiple generic values are
-defined.
+Events are invoked in the same way like how methods are called.
+If the event uses a generic value, it must be passed as a generic argument.
+The order of arguments needs to be in matching order if multiple generic values are defined.
 
 ```gno
 // Create an example Order object

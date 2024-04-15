@@ -35,6 +35,7 @@ E:
 - empty
 - enum
 - equals
+- entity
 - event
 - exists
 
@@ -68,6 +69,11 @@ N:
 - not
 - null
 
+M:
+
+- maybe
+- mod
+
 O:
 
 - of
@@ -80,6 +86,7 @@ S:
 - set
 - single
 - static
+- service
 - string
 - switch
 

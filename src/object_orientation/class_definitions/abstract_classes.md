@@ -60,11 +60,11 @@ They **must** be implemented by all children using the `overridden` method defin
 by the name of the implemented method.
 
 ```gno
-abstract class Media(
+abstract class Media (
     long:get mediaID,
     Date:get acquiringDate
 ) {
-    abstract RequiredMembershipToBorrow()
+    abstract Membership RequiredMembershipToBorrow()
 }
 
 class Book of Media (
@@ -83,5 +83,3 @@ class VideoGame of Media {
     overridden RequiredMembershipToBorrow() => Membership.PREMIUM
 }
 ```
-
-The example also shows that normal methods can be used as usual.

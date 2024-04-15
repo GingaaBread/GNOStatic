@@ -44,8 +44,7 @@ class Vector2 (
 ```
 
 ::: tip
-Here the `other` keyword is used, which is a shorthand for something like Add(Vector2 other) in
-many other languages.
+Here the `other` keyword is used, which is a shorthand for Add(Vector2 otherVector2).
 :::
 
 Now we can indeed add two vectors like so:

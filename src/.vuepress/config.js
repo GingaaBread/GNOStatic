@@ -161,6 +161,10 @@ module.exports = {
             title: "Comments",
             path: "/essentials/comments.md",
           },
+          {
+            title: "Constants",
+            path: "/essentials/constants.md",
+          },
         ],
       },
       {
@@ -174,20 +178,28 @@ module.exports = {
           },
           {
             title: "Class Definitions",
-            path: "/object_orientation/class_definition/abstract_classes",
+            path: "/object_orientation/class_definitions/abstract_classes",
             collapsable: true,
             children: [
               {
                 title: "Abstract Classes",
-                path: "/object_orientation/class_definition/abstract_classes.md",
+                path: "/object_orientation/class_definitions/abstract_classes.md",
               },
               {
                 title: "Iterable Classes",
-                path: "/object_orientation/class_definition/iterable_classes.md",
+                path: "/object_orientation/class_definitions/iterable_classes.md",
               },
               {
                 title: "Singleton Classes",
-                path: "/object_orientation/class_definition/singleton_classes.md",
+                path: "/object_orientation/class_definitions/singleton_classes.md",
+              },
+              {
+                title: "Entity Classes",
+                path: "/object_orientation/class_definitions/entity_classes.md",
+              },
+              {
+                title: "Service Classes",
+                path: "/object_orientation/class_definitions/service_classes.md",
               },
             ],
           },
@@ -278,6 +290,11 @@ module.exports = {
             ],
           },
         ],
+      },
+      {
+        title: "Sample",
+        path: "/sample.md",
+        collapsable: false,
       },
     ],
   },

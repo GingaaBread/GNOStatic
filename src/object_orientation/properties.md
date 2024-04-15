@@ -21,6 +21,9 @@ Note how unlike in other other languages, there are no explicit private, package
 public keywords. To know more about this see the chapter _Protection Levels_.
 :::
 
+Programmers from other languages will probably try to place properties in the body of a class.
+This is **NOT** possible in GNO. All properties are placed in the property block of a class.
+
 ## Getters
 
 A getter method is a method that simply returns a property. In GNO, there is no need to write an
