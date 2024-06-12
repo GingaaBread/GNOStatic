@@ -56,6 +56,16 @@ longExpression2 = select all from userData \
     where it.name.StartsWith("Adm")
 ```
 
+Similarly, the access operator `.` can be used to enter a new line:
+
+```gno
+numbers = [1, 5, 9, 23]
+print numbers
+    .over
+    .Mapped(it + 1)
+    .Last()
+```
+
 ### Brackets
 
 GNO uses curly brackets for member bodies. It is **NOT** an indented language.

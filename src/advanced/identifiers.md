@@ -22,3 +22,22 @@ Closed properties (properties that are neither `gettable` nor `settable`, or sea
 the underscore `_`.
 
 ## Methods
+
+## Literal Member Identifiers
+
+The dollar character `$` can be used to use GNO keywords as identifiers.
+This is useful for generated or automated scripts, but is **NOT** recommended for normal GNO
+files. The dollar character is not included in the identifier name.
+
+```gno
+// Does NOT compile
+class class {
+
+}
+
+
+// Compiles
+class $class {
+
+}
+```

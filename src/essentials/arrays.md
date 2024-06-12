@@ -34,10 +34,10 @@ This creates a new array with a fixed size of 4. Note that the size of an array 
 after initialisation.
 
 To intialise an array with a fixed size, but no values, supply the size of the array as an integer
-like so:
+using the `size of` keywords:
 
 ```gno
-string[] names = 3
+string[] names = size of 3
 ```
 
 This creates a new array with a fixed size of 3.

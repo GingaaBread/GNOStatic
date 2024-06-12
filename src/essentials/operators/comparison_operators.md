@@ -135,6 +135,7 @@ a = A()
 b = B()
 
 print a is of A // true
+print b is A // false
 print b is of A // true
 ```
 

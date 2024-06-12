@@ -7,8 +7,8 @@
 The `not` keyword operator returns the negated right boolean operand.
 
 ::: warning
-Note that the result is not applied to the operand, but returned.
-If you want to apply the negated operation, use the boolean's `Negate()` method, instead.
+Note that the result is not applied to the operand, but only returned.
+If you want to apply the negated operation, use negation operator `~`, instead.
 :::
 
 Example:

@@ -54,23 +54,23 @@ in Sample.Poker {
     in Sample.Poker.Entity {
 
         entity Player (
-            string:get name,
-            int currentAmountOfChips,
+            string:get name
+            int currentAmountOfChips
             :PlayerHand hand
         )
 
         with Sample.Poker.Entity.Card
         entity PlayerHand (
-            Card! first,
+            Card! first
             Card! second
         )
 
         in Sample.Poker.Entity.Card {
 
             enum CardSuit {
-                CLUBS,
-                SPADES,
-                DIAMONDS,
+                CLUBS
+                SPADES
+                DIAMONDS
                 HEARTS
             }
 
@@ -104,7 +104,7 @@ in Sample.Poker {
         )
 
         entity Bet (
-            int currentBet,
+            int currentBet
             Player currentPlayerWhoMustBet
         )
     }

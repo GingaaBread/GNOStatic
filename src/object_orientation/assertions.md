@@ -138,7 +138,7 @@ Properties can define assertions in their headers using the `with` keyword.
 
 ```gno
 Car (
-    Colour carColour with set is in [Colour.RED, Colour.BLUE, Colour.GREEN],
+    Colour carColour with set is in [Colour.RED, Colour.BLUE, Colour.GREEN]
     int maxSpeed with set is > 0
 )
 ```

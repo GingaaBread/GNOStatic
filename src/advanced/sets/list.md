@@ -1,6 +1,8 @@
-Lists are sets that are automatically included in all GNO files without the need to import them
-from the set folder. They are one of the most commonly used data structures that allow inserting,
-getting, and removing elements. Lists can be used in set queries.
+Lists are sets that are automatically included in all GNO files without the need to be imported
+Lists are one of the most commonly used data structures that allow the insertion, retrieval,
+and removal of elements.
+
+Lists use the `[,]` syntax, similar to how arrays use the `[]` syntax.
 
 ```gno
 string[,] shoppingList
@@ -8,10 +10,10 @@ string[,] shoppingList
 
 # Instantiating Lists
 
-Lists can be instantiated using the data type of the list followed by the square brackets with
+Lists can be instantiated by using the data type of the list followed by the square brackets with
 a comma in between `[,]`.
 
-This creates a new instance of the List class. Unlike all other objects, sets are initialised to `empty`,
+This creates a new instance of the List class. Like all sets, lists are initialised to `empty`,
 instead of `null` when declared.
 
 ::: danger
@@ -19,13 +21,13 @@ When declared, all set objects are automatically instantiated to `empty`.
 This is different from many other languages!
 :::
 
-If you want to instantiate the list to null, you have to do that manually like so:
+If desired, lists must be manually instantiated to null:
 
 ```gno
 string[,] shoppingList = null
 ```
 
-When instantiating a list, you can also provide list items of the same type as the list.
+When instantiating a list, an array of items of the same type as the list can be provided.
 They are added in the order of declaration from left to right.
 
 ```gno

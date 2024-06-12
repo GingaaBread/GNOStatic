@@ -59,3 +59,19 @@ class Circle (
 You can only throw `CastingException` exceptions in casting definitions. You can use the string
 shorthand `throw ""`, which will throw a `CastingException` with the string as the exception
 message.
+
+## Cast Access Operator :
+
+The cast access operator `:` allows easy member access when using a cast.
+
+The default access operator `.` requires the use of parentheses like so:
+
+```gno
+(rectangle as Square).PrintSquareInfo()
+```
+
+However, the cast access operator can be used as an alternative:
+
+```gno
+rectangle as Square: PrintSquareInfo()
+```

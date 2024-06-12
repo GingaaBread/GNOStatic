@@ -23,16 +23,11 @@ By default, variables of primitive types and enumeration constants, are not null
 assigned `null`. To declare them as nullable, the `?` operator is used directly after the type.
 
 ```gno
-Animal animal = null // <--- this will not compile because Animal is not nullable
-Animal? animal = null
-
 string name = null // <--- this will not compile because string is not nullable
 string? name = null
-
-enum Animal { FROG, LION, DONKEY, ELK }
 ```
 
-Similarly, by default, objects are nullable and can be assigned `null`.
+Objects are nullable.
 Non-null assertions can be used to automatically throw an AssertionException when a variable is
 expected to be not null, but is evaluated to null at compile-time.
 
@@ -49,7 +44,7 @@ class Example {
 
 ## Assignments
 
-In GNO values are assigned using the assignment operator `=`, followed by the desired value.
+In GNO variables are assigned using the assignment operator `=`, followed by the desired value.
 
 ```gno
 int age = 5
@@ -136,8 +131,8 @@ double x = 1.25d
 ```
 
 ::: danger
-_Never_ use singles or doubles in scenarios where critical accuracy is required (for example, never
-use the double type to represent money)!
+Do not use singles or doubles in scenarios where critical accuracy is required (for example, never
+to represent a money balance for banking applications).
 :::
 
 ### Single Character (char)
@@ -156,11 +151,12 @@ char y = 'x'
 char z = '5'
 ```
 
-### Multiple Characters (string)
+### Character String (string)
 
-The string _string_ is a sequence of UTF-16 characters enclosed by double quotes `"`.
+A _string_ is a sequence of UTF-16 characters enclosed by double quotes `"`.
 
-The default value of a double is "".
+The default value of a double is "", the empty string.
+The empty string can also be yielded using `string.empty`
 
 Example:
 
@@ -170,9 +166,25 @@ print default of string // ""
 string x = "Hello, World!"
 ```
 
+The dollar character `$` is used to interpolate a variable or expression in a string.
+Note that the dollar character must be escaped in a string because of this.
+
+Expressions are further wrapped in curly brackets `{}`.
+
+```gno
+randomNumber = select any from [1, 2, 3, 4,5]
+print "The new random number is $randomNumber"
+
+print "What will this print? It will print: ${Foo()}"
+
+Foo() {
+    get "Hello World"
+}
+```
+
 ### Boolean (boolean)
 
-The boolean _boolean_ is either the literal `true`, or the literal `false`.
+A _boolean_ is either the literal `true`, or the literal `false`.
 
 The default value of a boolean is false.
 

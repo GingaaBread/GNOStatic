@@ -105,12 +105,12 @@ if x is 3 {
 
 An inline if condition can be used in as an expression.
 In other languages, this is commonly done by using the operators `?` and `:` as ternary operators.
-In GNO, the keywords `if`, `then`, and `else` are used...
+In GNO, the keywords `then` and `else` are used, instead.
 
 ```gno
 boolean a = true
 boolean b = false
-int c = if a and b then 1 else 5
+int c = a and b then 1 else 5
 ```
 
 This can be a convenient way to quickly set a value inline, whilst avoiding a switch assignment.

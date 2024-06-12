@@ -4,14 +4,14 @@ Properties are attributes that you can define in classes. Example properties for
 could be _maxSpeed_, _colour_, _amountOfWheels_, etc.
 
 Properties **cannot** be placed inside the body of a class, but **must** be placed in the class
-property block, located within its parentheses `(` `)`, separated by commas `,`.
+property block, located within parentheses `(` `)`.
 
 _Example_:
 
 ```gno
 class Car (
-    int maxSpeed,
-    Color colour,
+    int maxSpeed
+    Color colour
     int amountOfWheels
 )
 ```
@@ -33,8 +33,8 @@ _Example_:
 
 ```gno
 class Car (
-    int maxSpeed,
-    Color colour,
+    int maxSpeed
+    Color colour
     int amountOfWheels
 )
 ```
@@ -229,8 +229,8 @@ _Example_:
 
 ```gno
 class Car (
-    int maxSpeed with set < 800,
-    Color colour with set is not null,
+    int maxSpeed with set < 800
+    Color colour with set is not null
     int amountOfWheels
 )
 ```
@@ -248,8 +248,8 @@ _Example_:
 
 ```gno
 class Car (
-    Color colour,
-    :int maxSpeed,
+    Color colour
+    :int maxSpeed
     :int amountOfWheels
 )
 
