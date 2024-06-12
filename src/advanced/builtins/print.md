@@ -11,8 +11,8 @@ As a builtin method, the method parenthesis are optional.
 
 ```gno
 print "Hello World!"
-print "This is in a new line!"
+print "This starts on a new line!"
 
 print("Hello World!")
-print("This is in a new line!   ")
+print("This starts on a new line!")
 ```

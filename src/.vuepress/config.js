@@ -287,6 +287,18 @@ module.exports = {
                 title: "Print",
                 path: "/advanced/builtins/print.md",
               },
+              {
+                title: "Printin",
+                path: "/advanced/builtins/printin.md",
+              },
+              {
+                title: "Args",
+                path: "/advanced/builtins/args.md",
+              },
+              {
+                title: "Input",
+                path: "/advanced/builtins/input.md",
+              },
             ],
           },
         ],

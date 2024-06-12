@@ -1,4 +1,4 @@
-# Exceptions
+# Errors & Exceptions
 
 Exceptions signalise exceptional situations occurring in a program. When they occur, the program will
 be instantly terminated completely disrupting the normal program flow.
@@ -152,3 +152,113 @@ void SetConfiguration(Configuration! config) {
 
 SetConfiguration(null) // IllegalArgumentException
 ```
+
+## Catching Exceptions & Errors
+
+Exceptions can be caught, using the `try` and `catch` keyword. The `try` blocks contains the
+statements(s) that may throw an exception or error.
+The `catch` block contains the statements(s) that will be executed upon the event of an exception or
+error.
+
+```gno
+try {
+    dataService = DataService()
+    data = dataService.RetrieveAllData()
+    print "Successfully retrieved all data: $data"
+} catch IOException {
+    print "Unfortunately, there was an error"
+}
+
+// Output:
+// (in the event of an exception):
+// "Unfortunately, there was an error"
+// (if there is no exception):
+// "Successfully retrieved all data: [DATA]"
+```
+
+An optional `then` block contains additional statements that will be executed after the try-catch
+blocks, no matter if an error or exceptions has occurred or not.
+
+```gno
+try {
+    dataService = DataService()
+    data = dataService.RetrieveAllData()
+    print "Successfully retrieved all data: $data"
+} catch IOException {
+    print "Unfortunately, there was an error"
+} then {
+    print "Anyway, I'm done."
+}
+
+// Output:
+// (in the event of an exception):
+// "Unfortunately, there was an error"
+// "Anyway, I'm done."
+// (if there is no exception):
+// "Successfully retrieved all data: [DATA]"
+// "Anyway, I'm done."
+```
+
+The exception class may be omitted to catch the occurrence of any exception.
+
+```gno
+try {
+    dataService = DataService()
+    data = dataService.RetrieveAllData()
+    print "Successfully retrieved all data: $data"
+} catch {
+    print "Unfortunately, there was an error"
+}
+```
+
+Multiple exceptions and errors may be caught in a single statement by separating them with a comma `,`:
+
+```gno
+try {
+    dataService = DataService()
+    data = dataService.RetrieveAllData()
+    print "Successfully retrieved all data: $data"
+} catch IOException, ExampleException {
+    print "Unfortunately, there was an error"
+}
+```
+
+Similarly to conditions, inline versions exist to simplify try-catch and try-catch-then statements
+for simple expressions:
+
+```gno
+// A string may throw a CastingException when not an int
+try {
+    int number = "Nonsense" as int
+} catch {
+    print "That is not a number"
+}
+
+// Output: "That is not a number"
+
+// A string may throw a CastingException when not an int
+int number = try "Nonsense" as int catch {
+    print "That is not a number"
+}
+
+// Output: "That is not a number"
+```
+
+Similarly, the `then` block may be added to the inline variant:
+
+```gno
+// A string may throw a CastingException when not an int
+int number = try "Nonsense" as int catch {
+    print "That is not a number"
+} then {
+    print "Anyway..."
+}
+
+// Output:
+// "That is not a number"
+// "Anyway..."
+```
+
+::: tip
+The arrow operator may be used for an inline try-catch statement
+:::

@@ -11,7 +11,7 @@ As a builtin method, the method parameters are optional.
 printin "Hello World!"
 printin "This is in the same line!"
 
-# Output: "Hello World!This is in the same line!"
+// Output: "Hello World!This is in the same line!"
 
 printin("Hello World!")
 printin("This is in the same line!")
