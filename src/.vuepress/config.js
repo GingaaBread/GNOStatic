@@ -301,6 +301,11 @@ module.exports = {
               },
             ],
           },
+          {
+            title: "Grammar",
+            path: "/advanced/grammar.md",
+            collapsable: true,
+          },
         ],
       },
       {

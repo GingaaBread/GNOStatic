@@ -78,32 +78,6 @@ print true xor false // true
 print false xor true // true
 ```
 
-## Constant Matching
-
-When dealing with constant values, it is often necessary to repeat an expression:
-
-```gno
-enum WeekDay { MONDAY, TUESDAY, WEDNESDAY, FRIDAY, SATURDAY, SUNDAY }
-weekDay = WeekDay.TUESDAY
-
-if weekDay is WeekDay.SATURDAY or weekDay is WeekDay.SUNDAY {
-    print "It's finally weekend!"
-}
-```
-
-GNO allows the use of the `either` keyword to list constants without having to repeat the operator:
-
-```gno
-enum WeekDay { MONDAY, TUESDAY, WEDNESDAY, FRIDAY, SATURDAY, SUNDAY }
-weekDay = WeekDay.TUESDAY
-
-if weekDay is either WeekDay.SATURDAY or WeekDay.SUNDAY {
-    print "It's finally weekend!"
-}
-```
-
-Items are separated using the `or` operator.
-
 ## Boolean Literals
 
 ::: danger

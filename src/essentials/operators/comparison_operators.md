@@ -161,3 +161,29 @@ print 5 as string equals "5" // true
 print 5 as double equals 5.5 // false
 print 5.5 as int equals 5 // true
 ```
+
+## Constant Matching
+
+When dealing with constant values, it is often necessary to repeat an expression:
+
+```gno
+enum WeekDay { MONDAY, TUESDAY, WEDNESDAY, FRIDAY, SATURDAY, SUNDAY }
+weekDay = WeekDay.TUESDAY
+
+if weekDay is WeekDay.SATURDAY or weekDay is WeekDay.SUNDAY {
+    print "It's finally weekend!"
+}
+```
+
+GNO allows the use of the `either` keyword to list constants without having to repeat the operator:
+
+```gno
+enum WeekDay { MONDAY, TUESDAY, WEDNESDAY, FRIDAY, SATURDAY, SUNDAY }
+weekDay = WeekDay.TUESDAY
+
+if weekDay is either WeekDay.SATURDAY or WeekDay.SUNDAY {
+    print "It's finally weekend!"
+}
+```
+
+Items are separated using the `or` operator.

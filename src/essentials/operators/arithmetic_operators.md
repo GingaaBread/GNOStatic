@@ -142,6 +142,14 @@ all other: double
 
 The operator is **not** commutative.
 
+## Modulo
+
+The `mod` keyword is used for modulo expressions:
+
+```gno
+5 mod 2 // 1
+```
+
 ## Arithmetic Assignment
 
 The addition, subtraction, multiplication and division operators can be used in the following

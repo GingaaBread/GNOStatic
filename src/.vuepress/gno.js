@@ -3,7 +3,7 @@
 Prism.languages.gno = {
   keyword: {
     pattern:
-      /\b(?:abstract|assert|any|and|all|as|boolean|break|case|catch|constructor|char|class|default|do|double|else|empty|enum|entity|equals|event|exists|from|for|foreach|get|if|it|implemented|in|invoke|int|interface|is|long|maybe|mod|not|null|of|other|or|unless|until|optional|overridden|set|single|size|static|string|service|select|switch|then|this|try|throw|void|where|while|with)\b/,
+      /\b(?:abstract|assert|any|and|all|as|boolean|break|case|catch|constructor|char|class|default|do|double|else|empty|enum|entity|equals|event|exists|from|for|foreach|get|if|it|implemented|in|either|invoke|int|interface|is|long|xor|mod|not|null|of|other|or|unless|until|optional|overridden|set|single|size|static|string|service|select|switch|then|this|try|throw|void|where|while|with)\b/,
     lookbehind: false,
     greedy: true,
   },
